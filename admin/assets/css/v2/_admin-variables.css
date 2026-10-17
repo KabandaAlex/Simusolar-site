@@ -1,0 +1,237 @@
+/**
+ * ==========================================================================
+ * ADMIN SETTINGS: VARIABLES
+ * ==========================================================================
+ * 
+ * Admin-specific design tokens that extend the main site variables.
+ * Uses `--a-` prefix for admin-specific custom properties.
+ * 
+ * @module Admin Settings
+ * @version 2.0.0
+ * ========================================================================== 
+ */
+
+:root {
+    /* ======================================================================
+       SURFACE COLORS (Light Mode)
+       ====================================================================== */
+    
+    --a-surface-primary: #ffffff;
+    --a-surface-secondary: #f8fafc;
+    --a-surface-elevated: #ffffff;
+    --a-surface-overlay: rgba(0, 0, 0, 0.5);
+    
+    /* ======================================================================
+       TEXT COLORS (Light Mode)
+       ====================================================================== */
+    
+    --a-text-primary: #1e293b;
+    --a-text-secondary: #475569;
+    --a-text-muted: #94a3b8;
+    --a-text-inverse: #ffffff;
+    
+    /* ======================================================================
+       BORDER COLORS (Light Mode)
+       ====================================================================== */
+    
+    --a-border-default: #e2e8f0;
+    --a-border-subtle: #f1f5f9;
+    --a-border-emphasis: #cbd5e1;
+    
+    /* ======================================================================
+       ADMIN-SPECIFIC COLORS
+       ====================================================================== */
+    
+    /* Sidebar Colors */
+    --a-sidebar-bg: linear-gradient(180deg, #1a0f30 0%, #2d1b4e 50%, #1a0f30 100%);
+    --a-sidebar-text: rgba(255, 255, 255, 0.7);
+    --a-sidebar-text-hover: #FFFFFF;
+    --a-sidebar-text-active: #FFFFFF;
+    --a-sidebar-link-hover-bg: rgba(255, 255, 255, 0.08);
+    --a-sidebar-link-active-bg: rgba(102, 0, 153, 0.4);
+    --a-sidebar-border: rgba(255, 255, 255, 0.08);
+    
+    /* Header/Topbar Colors */
+    --a-header-bg: #FFFFFF;
+    --a-header-border: var(--a-border-default);
+    --a-header-height: 64px;
+    
+    /* Content Area Colors */
+    --a-content-bg: #F8FAFC;
+    
+    /* Admin Status Colors (extending main site) */
+    --a-success: #10B981;
+    --a-success-light: #D1FAE5;
+    --a-success-border: #6EE7B7;
+    --a-warning: #F59E0B;
+    --a-warning-light: #FEF3C7;
+    --a-warning-border: #FCD34D;
+    --a-danger: #EF4444;
+    --a-danger-light: #FEE2E2;
+    --a-danger-border: #FCA5A5;
+    --a-info: #3B82F6;
+    --a-info-light: #DBEAFE;
+    --a-info-border: #93C5FD;
+    
+    /* ======================================================================
+       COMPONENT ALIASES (Light Mode)
+       ====================================================================== */
+    
+    --a-card-bg: var(--a-surface-primary);
+    --a-card-border: var(--a-border-default);
+    --a-input-bg: var(--a-surface-primary);
+    --a-input-border: var(--a-border-default);
+    --a-input-focus-border: #660099;
+    --a-input-focus-shadow: 0 0 0 3px rgba(102, 0, 153, 0.15);
+    --a-table-header-bg: var(--a-surface-secondary);
+    --a-table-row-hover-bg: #F1F5F9;
+    --a-table-border: var(--a-border-default);
+    --a-modal-bg: var(--a-surface-elevated);
+    --a-modal-overlay: var(--a-surface-overlay);
+    
+    /* ======================================================================
+       ADMIN LAYOUT DIMENSIONS
+       ====================================================================== */
+    
+    /* Sidebar Dimensions */
+    --a-sidebar-width: 280px;
+    --a-sidebar-collapsed-width: 72px;
+    --a-sidebar-padding: var(--space-4, 1rem);
+    
+    /* Content Spacing */
+    --a-content-padding: var(--space-8, 2rem);
+    --a-card-padding: var(--space-6, 1.5rem);
+    --a-card-radius: var(--radius-lg, 12px);
+    
+    /* ======================================================================
+       ADMIN Z-INDEX LAYERS
+       ====================================================================== */
+    
+    --a-z-sidebar: 300;
+    --a-z-header: 400;
+    --a-z-dropdown: 500;
+    --a-z-overlay: 600;
+    --a-z-modal: 700;
+    --a-z-toast: 800;
+    --a-z-tooltip: 900;
+    
+    /* ======================================================================
+       ADMIN COMPONENT TOKENS
+       ====================================================================== */
+    
+    /* Buttons */
+    --a-btn-padding-y: var(--space-2, 0.5rem);
+    --a-btn-padding-x: var(--space-4, 1rem);
+    --a-btn-font-size: var(--font-size-sm, 0.875rem);
+    --a-btn-font-weight: var(--font-weight-medium, 500);
+    --a-btn-radius: var(--radius-md, 8px);
+    --a-btn-transition: var(--transition-base, 200ms cubic-bezier(0.4, 0, 0.2, 1));
+    
+    /* Forms */
+    --a-input-padding-y: var(--space-2, 0.5rem);
+    --a-input-padding-x: var(--space-3, 0.75rem);
+    --a-input-font-size: var(--font-size-sm, 0.875rem);
+    --a-input-radius: var(--radius-md, 8px);
+    
+    /* Tables */
+    --a-table-cell-padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+    
+    /* Cards */
+    --a-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    --a-card-shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.1);
+    
+    /* Modals */
+    --a-modal-radius: var(--radius-xl, 16px);
+    --a-modal-padding: var(--space-6, 1.5rem);
+    
+    /* Badges */
+    --a-badge-padding-y: 2px;
+    --a-badge-padding-x: var(--space-2, 0.5rem);
+    --a-badge-font-size: 0.6875rem;
+    --a-badge-font-weight: var(--font-weight-bold, 700);
+    --a-badge-radius: var(--radius-full, 9999px);
+    
+    /* ======================================================================
+       ADMIN TRANSITIONS
+       ====================================================================== */
+    
+    --a-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --a-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --a-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --a-sidebar-transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* ======================================================================
+       ADMIN SHADOWS
+       ====================================================================== */
+    
+    --a-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --a-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --a-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT FOR ADMIN
+   ========================================================================== */
+
+html.dark {
+    /* ======================================================================
+       SURFACE COLORS (Dark Mode)
+       ====================================================================== */
+    
+    --a-surface-primary: #0f172a;
+    --a-surface-secondary: #1e293b;
+    --a-surface-elevated: #334155;
+    --a-surface-overlay: rgba(0, 0, 0, 0.7);
+    
+    /* ======================================================================
+       TEXT COLORS (Dark Mode)
+       ====================================================================== */
+    
+    --a-text-primary: #f1f5f9;
+    --a-text-secondary: #cbd5e1;
+    --a-text-muted: #64748b;
+    --a-text-inverse: #0f172a;
+    
+    /* ======================================================================
+       BORDER COLORS (Dark Mode)
+       ====================================================================== */
+    
+    --a-border-default: #334155;
+    --a-border-subtle: #1e293b;
+    --a-border-emphasis: #475569;
+    
+    /* ======================================================================
+       COMPONENT OVERRIDES (Dark Mode)
+       ====================================================================== */
+    
+    --a-header-bg: #1E293B;
+    --a-header-border: #334155;
+    --a-content-bg: #0F172A;
+    
+    --a-card-bg: var(--a-surface-secondary);
+    --a-card-border: var(--a-border-default);
+    --a-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --a-card-shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.4);
+    
+    --a-input-bg: var(--a-surface-secondary);
+    --a-input-border: var(--a-border-emphasis);
+    --a-input-focus-shadow: 0 0 0 3px rgba(102, 0, 153, 0.3);
+    
+    --a-table-header-bg: var(--a-surface-secondary);
+    --a-table-row-hover-bg: #334155;
+    --a-table-border: var(--a-border-default);
+    
+    --a-modal-bg: var(--a-surface-elevated);
+    --a-modal-overlay: var(--a-surface-overlay);
+    
+    /* Status Colors - Darker backgrounds for dark mode */
+    --a-success-light: #064E3B;
+    --a-warning-light: #78350F;
+    --a-danger-light: #7F1D1D;
+    --a-info-light: #1E3A8A;
+    
+    /* Shadows - Darker for dark mode */
+    --a-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --a-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --a-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+}

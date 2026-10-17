@@ -1,0 +1,450 @@
+/**
+ * ==========================================================================
+ * TULIMA SOLAR - ADMIN PANEL CSS
+ * ==========================================================================
+ * 
+ * Main entry point for admin panel styles.
+ * This file imports all partial CSS modules in the correct order.
+ * 
+ * Architecture: ITCSS (Inverted Triangle CSS)
+ * 1. Settings - Variables, config
+ * 2. Tools - Mixins, functions
+ * 3. Generic - Reset, normalize
+ * 4. Elements - Base HTML elements
+ * 5. Objects - Layout patterns
+ * 6. Components - UI components
+ * 7. Utilities - Helper classes
+ * 
+ * NOTE: This CSS is self-contained for the admin panel.
+ * It does NOT depend on public site CSS from assets/css/.
+ * All necessary variables and styles are defined in admin-specific partials.
+ * 
+ * @version 2.1.0
+ * @author Tulima Solar Development Team
+ * ========================================================================== 
+ */
+
+/* ==========================================================================
+   1. SETTINGS - Design Tokens & Variables
+   ========================================================================== */
+
+/* Admin-specific variables (self-contained, no external dependencies) */
+@import url('_admin-variables.css');
+
+/* ==========================================================================
+   2. TOOLS - Mixins & Functions
+   ========================================================================== */
+
+/* Note: Mixins and functions are defined inline in _admin-variables.css */
+/* No external imports needed - admin CSS is self-contained */
+
+/* ==========================================================================
+   3. GENERIC - Reset & Normalize
+   ========================================================================== */
+
+/* Note: Basic reset/normalize styles included in admin-specific files */
+/* No external imports needed - admin CSS is self-contained */
+
+/* ==========================================================================
+   4. ELEMENTS - Base HTML Elements
+   ========================================================================== */
+
+/* Note: Base element styles are defined in admin-specific partials */
+/* No external imports needed - admin CSS is self-contained */
+
+/* ==========================================================================
+   5. OBJECTS - Layout Patterns
+   ========================================================================== */
+
+/* Note: Layout patterns are defined in _admin-layout.css */
+/* No external imports needed - admin CSS is self-contained */
+
+/* ==========================================================================
+   6. COMPONENTS - UI Components
+   ========================================================================== */
+
+/* Admin-specific layout components */
+@import url('_admin-layout.css');
+
+/* Admin-specific UI components */
+@import url('_admin-components.css');
+
+/* ==========================================================================
+   7. UTILITIES - Helper Classes
+   ========================================================================== */
+
+/* Admin-specific utilities */
+@import url('_admin-utilities.css');
+
+/* ==========================================================================
+   ADMIN-SPECIFIC BASE STYLES
+   ========================================================================== */
+
+/**
+ * Admin-specific base styles that don't fit in partials
+ */
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary, #660099);
+    color: white;
+    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+    text-decoration: none;
+    z-index: 10000;
+    font-weight: 600;
+    border-radius: 0 0 var(--radius-md, 8px) 0;
+    transition: top var(--transition-fast, 150ms);
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+    outline: 3px solid var(--color-primary, #660099);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-primary, #660099);
+    outline-offset: 2px;
+}
+
+/* Admin body base styles */
+body {
+    font-family: var(--font-body, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-primary, #1E293B);
+    background: var(--a-content-bg, #F8FAFC);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* Global SVG Icon Sizing */
+svg {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   LEGACY CLASS MAPPINGS
+   ========================================================================== */
+
+/**
+ * These classes maintain backward compatibility with existing admin pages.
+ * They duplicate styles from the new BEM-based classes.
+ */
+
+/* Layout mappings */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--a-content-bg);
+}
+
+.admin-main {
+    flex: 1;
+    margin-left: var(--a-sidebar-width);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left var(--a-sidebar-transition);
+}
+
+.admin-content {
+    flex: 1;
+    padding: var(--a-content-padding);
+}
+
+/* Topbar/Header mappings */
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4, 1rem) var(--a-content-padding);
+    background: var(--a-header-bg);
+    border-bottom: 1px solid var(--a-header-border);
+    position: sticky;
+    top: 0;
+    z-index: var(--a-z-header);
+    height: var(--a-header-height);
+}
+
+/* Card mappings */
+.admin-card {
+    background: var(--a-card-bg);
+    border: 1px solid var(--a-card-border);
+    border-radius: var(--a-card-radius);
+    box-shadow: var(--a-card-shadow);
+    overflow: hidden;
+    transition: box-shadow var(--a-transition-base);
+}
+
+.admin-card:hover {
+    box-shadow: var(--a-card-shadow-hover);
+}
+
+.admin-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--a-card-padding);
+    border-bottom: 1px solid var(--a-card-border);
+    background: var(--a-content-bg);
+}
+
+.admin-card__body {
+    padding: var(--a-card-padding);
+}
+
+.admin-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-4, 1rem) var(--a-card-padding);
+    border-top: 1px solid var(--a-card-border);
+    background: var(--a-content-bg);
+}
+
+/* Button mappings */
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2, 0.5rem);
+    padding: var(--a-btn-padding-y) var(--a-btn-padding-x);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--a-btn-radius);
+    font-size: var(--a-btn-font-size);
+    font-weight: var(--a-btn-font-weight);
+    font-family: inherit;
+    line-height: 1.5;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--a-btn-transition);
+    white-space: nowrap;
+}
+
+.admin-btn--primary {
+    background: linear-gradient(135deg, var(--color-primary, #660099) 0%, var(--color-primary-dark, #4A0066) 100%);
+    color: white;
+    border-color: var(--color-primary, #660099);
+}
+
+.admin-btn--secondary {
+    background: var(--color-bg-secondary, #F1F5F9);
+    color: var(--color-text-primary, #1E293B);
+    border-color: var(--color-border, #dee2e6);
+}
+
+.admin-btn--danger {
+    background: var(--a-danger, #EF4444);
+    color: white;
+    border-color: var(--a-danger, #EF4444);
+}
+
+.admin-btn--success {
+    background: var(--a-success, #10B981);
+    color: white;
+    border-color: var(--a-success, #10B981);
+}
+
+/* Form mappings */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5, 1.25rem);
+}
+
+.admin-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2, 0.5rem);
+}
+
+.admin-form__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary, #1E293B);
+}
+
+.admin-form__input {
+    width: 100%;
+    padding: var(--a-input-padding-y) var(--a-input-padding-x);
+    background: var(--a-input-bg);
+    border: 1px solid var(--a-input-border);
+    border-radius: var(--a-input-radius);
+    font-size: var(--a-input-font-size);
+    font-family: inherit;
+    color: var(--color-text-primary, #1E293B);
+    transition: all var(--a-transition-base);
+}
+
+.admin-form__input:focus {
+    border-color: var(--a-input-focus-border);
+    box-shadow: var(--a-input-focus-shadow);
+    outline: none;
+}
+
+/* Table mappings */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: var(--a-table-cell-padding);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.admin-table th {
+    background: var(--a-table-header-bg);
+    font-weight: 600;
+    color: var(--color-text-secondary, #475569);
+    border-bottom: 2px solid var(--a-table-border);
+}
+
+.admin-table td {
+    border-bottom: 1px solid var(--a-table-border);
+    color: var(--color-text-primary, #1E293B);
+}
+
+.admin-table tbody tr:hover {
+    background: var(--a-table-row-hover-bg);
+}
+
+/* Data Table */
+.data-table {
+    background: var(--a-card-bg);
+    border-radius: var(--a-card-radius);
+    border: 1px solid var(--a-card-border);
+    overflow: hidden;
+}
+
+/* Alert mappings */
+.admin-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-4, 1rem);
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid transparent;
+}
+
+.admin-alert--success {
+    background: var(--a-success-light, #D1FAE5);
+    border-color: var(--a-success-border, #6EE7B7);
+    color: var(--a-success, #10B981);
+}
+
+.admin-alert--warning {
+    background: var(--a-warning-light, #FEF3C7);
+    border-color: var(--a-warning-border, #FCD34D);
+    color: var(--a-warning, #F59E0B);
+}
+
+.admin-alert--danger {
+    background: var(--a-danger-light, #FEE2E2);
+    border-color: var(--a-danger-border, #FCA5A5);
+    color: var(--a-danger, #EF4444);
+}
+
+.admin-alert--info {
+    background: var(--a-info-light, #DBEAFE);
+    border-color: var(--a-info-border, #93C5FD);
+    color: var(--a-info, #3B82F6);
+}
+
+/* Badge mappings */
+.admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1, 0.25rem);
+    padding: var(--a-badge-padding-y) var(--a-badge-padding-x);
+    font-size: var(--a-badge-font-size);
+    font-weight: var(--a-badge-font-weight);
+    border-radius: var(--a-badge-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+    /* Hide non-essential elements */
+    .a-sidebar,
+    .a-header,
+    .a-footer,
+    .a-btn,
+    .a-pagination,
+    .no-print {
+        display: none !important;
+    }
+    
+    /* Full width content */
+    .a-main {
+        margin-left: 0 !important;
+    }
+    
+    .a-content {
+        padding: 0 !important;
+    }
+    
+    /* Reset backgrounds */
+    body {
+        background: white !important;
+    }
+    
+    .a-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    /* Page breaks */
+    .a-card {
+        break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        break-after: avoid;
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
