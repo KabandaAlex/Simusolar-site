@@ -1,0 +1,129 @@
+================================================================================
+TULIMA SOLAR - Site colors, fonts and font sizes
+Source: static/css/app.css
+================================================================================
+
+--------------------------------------------------------------------------------
+COLORS
+--------------------------------------------------------------------------------
+
+BRAND (main palette)
+  Primary purple    #660099   --primary-purple
+  Secondary green   #B0D7AB   --secondary-green
+  Accent orange     #E98E39   --accent-orange
+
+PURPLE VARIANTS
+  Dark purple       #4A0066   --dark-purple
+  Light purple      #F0E6F7   --light-purple
+  Navbar / darker   #2d1b4e   --tulima-darker
+
+GREEN VARIANTS
+  Dark green        #8BC4A0   --dark-green
+  Light green       #E8F5E8   --light-green
+
+ORANGE VARIANTS
+  Dark orange       #D17A1F   --dark-orange
+  Light orange      #FDF4E8   --light-orange
+
+NEUTRALS (text and UI)
+  Text primary      #2C2C2C   --text-primary
+  Text secondary    #4A4A4A   --text-secondary
+  Text muted        #6B6B6B   --text-muted
+  White             #FFFFFF   --white
+  Black             #000000   --black
+  Dark gray         #4A4A4A   --dark-gray
+  Light gray        #f8f9fa   --light-gray
+  Border            #dee2e6   --tulima-border
+
+HARD-CODED (home/layout)
+  Section white     #fff
+  Section gray      #f8f9fa
+  Card border       #e9ecef
+
+SHADOWS / OVERLAYS (rgba)
+  Light shadow      rgba(0,0,0,0.1)      --shadow-light
+  Medium shadow     rgba(0,0,0,0.15)     --shadow-medium
+  Hero overlay      rgba(0,0,0,0.45)
+  Purple tints      rgba(102,0,153,...)
+  Green tints       rgba(176,215,171,...)
+  Orange tints      rgba(233,142,57,...)
+  White overlays    rgba(255,255,255,0.9 / 0.15 / 0.1)
+
+GRADIENTS (CSS variables, built from hex colors above)
+  --gradient-primary   (purple → dark purple)
+  --gradient-secondary (purple → green)
+  --gradient-accent    (orange → dark orange)
+  --gradient-hero      (purple → green → orange)
+  --gradient-text      (orange → purple)
+
+--------------------------------------------------------------------------------
+FONT FAMILIES
+--------------------------------------------------------------------------------
+
+Header (headings, hero title, section titles)
+  --font-header: 'Inter', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+Body (paragraphs, nav, buttons, general text)
+  --font-body: 'Inter', 'Calibri', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+Other
+  Quote / testimonial decorative  serif  (e.g. Georgia)
+
+Note: Inter is loaded from Google Fonts (weights 400, 500, 600, 700, 800).
+
+--------------------------------------------------------------------------------
+FONT SIZES
+--------------------------------------------------------------------------------
+
+Headings (global)
+  h1                2.5rem
+  h2                2rem
+  h3                1.75rem
+  h4                1.5rem
+  h5                1.25rem
+  h6                1.1rem
+
+Hero
+  Hero title        clamp(1.75rem, 4vw, 2.75rem)  [home]
+  Hero title        clamp(1.75rem, 4vw, 3rem)    [general]
+  Hero subtitle     1.1rem
+
+Section headers
+  Section title     1.75rem
+  Section subtitle  1rem / 1.1rem
+
+Body and UI
+  Lead text         1.25rem
+  Body / default    (inherited, typically 1rem / 16px)
+  Card text         0.9375rem (15px)
+  Small / labels    0.9rem, 0.875rem (14px)
+  Smallest          0.8rem (e.g. step tags, stat desc)
+
+Components
+  Navbar brand      1.25rem
+  Stat number       1.75rem / 2rem
+  Stat label        0.875rem / 0.9rem
+  Product card title    1.1rem
+  Service card title    1.05rem
+  CTA strip title   1.35rem
+  Step number       1rem
+  Footer text       0.9375rem, 0.875rem, 0.9rem
+  Final CTA title   1.75rem
+  Final CTA note    0.875rem
+
+Admin
+  Display-6         1.75rem
+  Table             0.875rem
+
+--------------------------------------------------------------------------------
+FONT WEIGHTS (used in app.css)
+--------------------------------------------------------------------------------
+  400  normal (e.g. lead)
+  600  semibold (e.g. card titles, labels)
+  700  bold (headings, navbar brand, CTA titles)
+  800  extrabold (hero title in some contexts)
+  900  black (e.g. stats-number)
+
+================================================================================
+End of file
+================================================================================
