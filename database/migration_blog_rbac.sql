@@ -1,0 +1,151 @@
+-- =============================================================================
+-- Tulima Solar CMS - Blog RBAC (Role-Based Access Control) Documentation
+-- =============================================================================
+-- Version: 1.0
+-- Date: 2026-02-23
+-- Description: Documentation for the Blog RBAC system
+--
+-- NOTE: The role column already exists in the admins table from 
+-- migration_admin_users_advanced.sql. This file documents the permission
+-- structure for the blog system.
+--
+-- =============================================================================
+
+-- =============================================================================
+-- ROLES AND PERMISSIONS OVERVIEW
+-- =============================================================================
+-- 
+-- The blog system uses three roles with hierarchical permissions:
+--
+-- 1. ADMIN (Full Access)
+--    - Can manage all blog content (posts, categories, tags, comments)
+--    - Can manage users and assign roles
+--    - Can view engagement analytics
+--    - Can delete any content
+--    - Has access to all admin settings
+--
+-- 2. EDITOR (Content Manager)
+--    - Can manage all blog posts (create, edit, delete any post)
+--    - Can manage categories and tags
+--    - Can moderate comments
+--    - Can view engagement analytics
+--    - Cannot manage users or access settings
+--
+-- 3. AUTHOR (Content Creator)
+--    - Can create new blog posts
+--    - Can edit OWN posts only
+--    - Can view engagement analytics (read-only)
+--    - Cannot manage categories or tags
+--    - Cannot moderate comments
+--
+-- =============================================================================
+
+-- =============================================================================
+-- PERMISSION CONSTANTS (Defined in admin/includes/auth_helpers.php)
+-- =============================================================================
+--
+-- ROLE_HIERARCHY:
+--   admin  = 100
+--   editor = 50
+--   author = 10
+--
+-- ROLE_PERMISSIONS:
+--   admin:
+--     - blog_manage_categories
+--     - blog_manage_tags
+--     - blog_manage_posts
+--     - blog_edit_any_post
+--     - blog_manage_comments
+--     - blog_view_engagement
+--     - blog_delete_content
+--     - user_manage
+--     - settings_manage
+--
+--   editor:
+--     - blog_manage_categories
+--     - blog_manage_tags
+--     - blog_manage_posts
+--     - blog_edit_any_post
+--     - blog_manage_comments
+--     - blog_view_engagement
+--     - blog_delete_content
+--
+--   author:
+--     - blog_manage_posts
+--     - blog_edit_own_post
+--     - blog_view_engagement
+--
+-- =============================================================================
+
+-- =============================================================================
+-- PAGE ACCESS REQUIREMENTS
+-- =============================================================================
+--
+-- Blog Admin Pages:
+--
+-- blog_categories.php  -> requireCategoryAccess()  -> blog_manage_categories
+-- blog_tags.php        -> requireTagAccess()       -> blog_manage_tags
+-- blog_posts.php       -> requirePostAccess()      -> Minimum author role
+-- blog_post_edit.php   -> requirePostEditAccess()  -> Authors: own posts only
+-- blog_comments.php    -> requireCommentAccess()   -> blog_manage_comments
+-- blog_engagement.php  -> requirePermission()      -> blog_view_engagement
+--
+-- User Management:
+-- users.php            -> requireRole('admin')     -> Admin only
+--
+-- =============================================================================
+
+-- =============================================================================
+-- BACKWARD COMPATIBILITY
+-- =============================================================================
+--
+-- Existing admin accounts without a role set will default to 'admin' role
+-- for backward compatibility. This ensures existing administrators retain
+-- full access to all features.
+--
+-- The getCurrentAdminRole() function in auth_helpers.php handles this:
+--   - If role is in session, use it
+--   - If role is NULL in database, default to 'admin'
+--   - Cache role in session for performance
+--
+-- =============================================================================
+
+-- =============================================================================
+-- DATABASE INTEGRITY NOTES
+-- =============================================================================
+--
+-- The blog_posts table has created_by and updated_by fields that reference
+-- the admins table. When an author creates a post, their admin ID is stored
+-- in created_by. The canEditPost() function checks this field to determine
+-- if an author can edit a specific post.
+--
+-- Query example for author's own posts:
+--   SELECT * FROM blog_posts WHERE created_by = ? AND deleted_at IS NULL
+--
+-- =============================================================================
+
+-- =============================================================================
+-- USAGE EXAMPLES
+-- =============================================================================
+--
+-- In PHP files, use the helper functions:
+--
+-- // At the top of a blog admin page:
+-- require_once __DIR__ . '/includes/auth_helpers.php';
+-- requireCategoryAccess(); // Redirects if no permission
+--
+-- // Check permission conditionally:
+-- if (canEditPost($postId)) {
+--     // Show edit button
+-- }
+--
+-- // Check role level:
+-- if (isEditor()) {
+--     // Show editor-only features
+-- }
+--
+-- // Get current user info:
+-- $role = getCurrentAdminRole();
+-- $userInfo = getCurrentAdminInfo();
+--
+-- =============================================================================
