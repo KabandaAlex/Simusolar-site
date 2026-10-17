@@ -1,0 +1,452 @@
+/**
+ * Tulima Solar - Button Components
+ * Components: Buttons (ITCSS Layer 6)
+ * 
+ * Button styles with variants for different contexts
+ * BEM naming: .c-btn, .c-btn--primary, etc.
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   BUTTON BASE
+   ========================================================================== */
+
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--btn-border-radius);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.c-btn:hover {
+  text-decoration: none;
+}
+
+.c-btn:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+.c-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.c-btn:focus-visible {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+.c-btn:disabled,
+.c-btn.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button with icon */
+.c-btn svg,
+.c-btn img {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   BUTTON PRIMARY (Purple)
+   ========================================================================== */
+
+.c-btn--primary {
+  background-color: var(--primary-purple);
+  color: var(--white);
+  border-color: var(--primary-purple);
+}
+
+.c-btn--primary:hover {
+  background-color: var(--dark-purple);
+  border-color: var(--dark-purple);
+  color: var(--white);
+}
+
+.c-btn--primary:active {
+  background-color: var(--navbar-dark);
+  border-color: var(--navbar-dark);
+}
+
+/* ==========================================================================
+   BUTTON SECONDARY (Green)
+   ========================================================================== */
+
+.c-btn--secondary {
+  background-color: var(--secondary-green);
+  color: var(--dark-purple);
+  border-color: var(--secondary-green);
+}
+
+.c-btn--secondary:hover {
+  background-color: var(--dark-green);
+  border-color: var(--dark-green);
+  color: var(--dark-purple);
+}
+
+/* ==========================================================================
+   BUTTON ACCENT (Orange)
+   ========================================================================== */
+
+.c-btn--accent {
+  background-color: var(--accent-orange);
+  color: var(--white);
+  border-color: var(--accent-orange);
+}
+
+.c-btn--accent:hover {
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   BUTTON OUTLINE VARIANTS
+   ========================================================================== */
+
+.c-btn--outline-primary {
+  background-color: transparent;
+  color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.c-btn--outline-primary:hover {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+.c-btn--outline-secondary {
+  background-color: transparent;
+  color: var(--secondary-green);
+  border-color: var(--secondary-green);
+}
+
+.c-btn--outline-secondary:hover {
+  background-color: var(--secondary-green);
+  color: var(--dark-purple);
+}
+
+.c-btn--outline-accent {
+  background-color: transparent;
+  color: var(--accent-orange);
+  border-color: var(--accent-orange);
+}
+
+.c-btn--outline-accent:hover {
+  background-color: var(--accent-orange);
+  color: var(--white);
+}
+
+/* White outline (for dark backgrounds) */
+.c-btn--outline-white {
+  background-color: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.c-btn--outline-white:hover {
+  background-color: var(--white);
+  color: var(--primary-purple);
+}
+
+/* ==========================================================================
+   BUTTON GHOST (Text only)
+   ========================================================================== */
+
+.c-btn--ghost {
+  background-color: transparent;
+  color: var(--primary-purple);
+  border-color: transparent;
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+}
+
+.c-btn--ghost:hover {
+  background-color: var(--light-purple);
+  color: var(--dark-purple);
+}
+
+.c-btn--ghost-white {
+  background-color: transparent;
+  color: var(--white);
+  border-color: transparent;
+}
+
+.c-btn--ghost-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   BUTTON SIZES
+   ========================================================================== */
+
+.c-btn--sm {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.c-btn--lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+}
+
+.c-btn--xl {
+  padding: var(--spacing-5) var(--spacing-10);
+  font-size: var(--font-size-xl);
+}
+
+/* Full width button */
+.c-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* ==========================================================================
+   BUTTON SHAPES
+   ========================================================================== */
+
+.c-btn--rounded {
+  border-radius: var(--radius-full);
+}
+
+.c-btn--square {
+  border-radius: 0;
+}
+
+/* Icon only button */
+.c-btn--icon {
+  padding: var(--spacing-3);
+  border-radius: var(--radius-full);
+}
+
+.c-btn--icon.c-btn--sm {
+  padding: var(--spacing-2);
+}
+
+.c-btn--icon.c-btn--lg {
+  padding: var(--spacing-4);
+}
+
+/* ==========================================================================
+   BUTTON STATES
+   ========================================================================== */
+
+.c-btn.is-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.c-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-full);
+  animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.c-btn.is-loading.c-btn--primary::after,
+.c-btn.is-loading.c-btn--accent::after {
+  border-color: var(--white);
+  border-right-color: transparent;
+}
+
+.c-btn.is-loading.c-btn--secondary::after,
+.c-btn.is-loading.c-btn--outline-primary::after {
+  border-color: var(--primary-purple);
+  border-right-color: transparent;
+}
+
+/* ==========================================================================
+   BUTTON GROUP
+   ========================================================================== */
+
+.c-btn-group {
+  display: inline-flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.c-btn-group--center {
+  justify-content: center;
+}
+
+.c-btn-group--full {
+  display: flex;
+  width: 100%;
+}
+
+.c-btn-group--full .c-btn {
+  flex: 1;
+}
+
+/* Connected button group */
+.c-btn-group--connected {
+  gap: 0;
+}
+
+.c-btn-group--connected .c-btn {
+  border-radius: 0;
+}
+
+.c-btn-group--connected .c-btn:first-child {
+  border-top-left-radius: var(--btn-border-radius);
+  border-bottom-left-radius: var(--btn-border-radius);
+}
+
+.c-btn-group--connected .c-btn:last-child {
+  border-top-right-radius: var(--btn-border-radius);
+  border-bottom-right-radius: var(--btn-border-radius);
+}
+
+/* ==========================================================================
+   CTA BUTTON (Special styling for call-to-action)
+   ========================================================================== */
+
+.c-btn--cta {
+  position: relative;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-4) var(--spacing-10);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(102, 0, 153, 0.4);
+  overflow: hidden;
+}
+
+.c-btn--cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.c-btn--cta:hover::before {
+  left: 100%;
+}
+
+.c-btn--cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 0, 153, 0.5);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   CLOSE BUTTON
+   ========================================================================== */
+
+.c-btn--close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.c-btn--close:hover {
+  background-color: var(--light-gray);
+  color: var(--text-primary);
+}
+
+.c-btn--close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   PAGINATION BUTTONS
+   ========================================================================== */
+
+.c-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.c-pagination__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 var(--spacing-3);
+  background-color: var(--white);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.c-pagination__btn:hover {
+  background-color: var(--light-purple);
+  border-color: var(--primary-purple);
+  color: var(--primary-purple);
+  text-decoration: none;
+}
+
+.c-pagination__btn.is-active {
+  background-color: var(--primary-purple);
+  border-color: var(--primary-purple);
+  color: var(--white);
+}
+
+.c-pagination__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c-pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-muted);
+}

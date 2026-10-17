@@ -1,0 +1,275 @@
+/**
+ * Tulima Solar - Modern CSS Reset
+ * Generic: Reset (ITCSS Layer 3)
+ * 
+ * A modern CSS reset based on best practices
+ * Removes default browser styling inconsistencies
+ * 
+ * @version 1.0.0
+ * Based on: Josh Comeau's Modern CSS Reset, Andy Bell's CSS Reset
+ */
+
+/* ==========================================================================
+   BOX SIZING
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   REMOVE DEFAULT MARGINS
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   ROOT AND BODY
+   ========================================================================== */
+
+html {
+  /* Prevent font size inflation on mobile */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY RESET
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   ANCHORS
+   ========================================================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([class]) {
+  /* Links without a class get default styling */
+  text-decoration-skip-ink: auto;
+  color: var(--primary-purple, #660099);
+}
+
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary-purple, #660099);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   IMAGES AND MEDIA
+   ========================================================================== */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Maintain intrinsic aspect ratio */
+img, picture {
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--primary-purple, #660099);
+  outline-offset: 2px;
+}
+
+input:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Remove default appearance for search inputs */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+/* ==========================================================================
+   TEXTAREA
+   ========================================================================== */
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color, #dee2e6);
+  margin: var(--spacing-4, 1rem) 0;
+}
+
+/* ==========================================================================
+   HEADINGS (remove default spacing)
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, pre, blockquote, figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   EMBEDDED CONTENT
+   ========================================================================== */
+
+iframe {
+  border: 0;
+  display: block;
+}
+
+/* ==========================================================================
+   SUMMARY/DISCLOSURE WIDGETS
+   ========================================================================== */
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ==========================================================================
+   SELECTION STYLING
+   ========================================================================== */
+
+::selection {
+  background-color: var(--primary-purple, #660099);
+  color: var(--white, #ffffff);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: FOCUS VISIBLE
+   ========================================================================== */
+
+/* Remove outline for mouse users, keep for keyboard users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================================================
+   HIDDEN ATTRIBUTES
+   ========================================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   SCREEN READER ONLY
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

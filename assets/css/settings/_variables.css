@@ -1,0 +1,225 @@
+/**
+ * Tulima Solar - CSS Design Tokens
+ * Settings: Variables (ITCSS Layer 1)
+ * 
+ * This file contains all CSS custom properties (design tokens)
+ * Following ITCSS methodology - most generic settings first
+ * 
+ * @version 1.0.0
+ */
+
+:root {
+  /* ==========================================================================
+     BRAND COLORS - Primary Palette
+     ========================================================================== */
+  --primary-purple: #660099;
+  --secondary-green: #B0D7AB;
+  --accent-orange: #E98E39;
+
+  /* ==========================================================================
+     BRAND COLORS - Darker Variants
+     ========================================================================== */
+  --dark-purple: #4A0066;
+  --dark-green: #8BC4A0;
+  --dark-orange: #D17A1F;
+  --navbar-dark: #2d1b4e;
+
+  /* ==========================================================================
+     BRAND COLORS - Lighter Variants
+     ========================================================================== */
+  --light-purple: #F0E6F7;
+  --light-green: #E8F5E8;
+  --light-orange: #FDF4E8;
+
+  /* ==========================================================================
+     NEUTRAL COLORS - Text & UI
+     ========================================================================== */
+  --text-primary: #2C2C2C;
+  --text-secondary: #4A4A4A;
+  --text-muted: #6B6B6B;
+  --white: #FFFFFF;
+  --black: #000000;
+  --dark-gray: #4A4A4A;
+  --light-gray: #f8f9fa;
+  --border-color: #dee2e6;
+  --card-border: #e9ecef;
+
+  /* ==========================================================================
+     SEMANTIC COLORS
+     ========================================================================== */
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-info: #17a2b8;
+
+  /* ==========================================================================
+     SHADOWS & OVERLAYS
+     ========================================================================== */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-heavy: rgba(0, 0, 0, 0.25);
+  --hero-overlay: rgba(0, 0, 0, 0.45);
+  --purple-tint: rgba(102, 0, 153, 0.1);
+  --green-tint: rgba(176, 215, 171, 0.1);
+  --orange-tint: rgba(233, 142, 57, 0.1);
+  --white-overlay-90: rgba(255, 255, 255, 0.9);
+  --white-overlay-15: rgba(255, 255, 255, 0.15);
+  --white-overlay-10: rgba(255, 255, 255, 0.1);
+
+  /* ==========================================================================
+     GRADIENTS
+     ========================================================================== */
+  --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-green) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent-orange) 0%, var(--dark-orange) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-green) 50%, var(--accent-orange) 100%);
+  --gradient-text: linear-gradient(90deg, var(--accent-orange) 0%, var(--primary-purple) 100%);
+
+  /* ==========================================================================
+     TYPOGRAPHY - Font Families
+     ========================================================================== */
+  --font-header: 'Inter', 'Century Gothic', 'CenturyGothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Calibri', 'Candara', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+
+  /* ==========================================================================
+     TYPOGRAPHY - Font Sizes (Mobile First)
+     ========================================================================== */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-md: 1.125rem;   /* 18px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.75rem;   /* 28px */
+  --font-size-3xl: 2rem;      /* 32px */
+  --font-size-4xl: 2.5rem;    /* 40px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  /* ==========================================================================
+     TYPOGRAPHY - Font Weights
+     ========================================================================== */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* ==========================================================================
+     TYPOGRAPHY - Line Heights
+     ========================================================================== */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.65;
+  --line-height-loose: 1.8;
+
+  /* ==========================================================================
+     TYPOGRAPHY - Letter Spacing
+     ========================================================================== */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ==========================================================================
+     SPACING SCALE
+     ========================================================================== */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     TRANSITIONS
+     ========================================================================== */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  --transition-slower: 500ms ease;
+
+  /* ==========================================================================
+     Z-INDEX SCALE
+     ========================================================================== */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* ==========================================================================
+     LAYOUT - Container Widths
+     ========================================================================== */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
+
+  /* ==========================================================================
+     LAYOUT - Component Sizes
+     ========================================================================== */
+  --navbar-height: 70px;
+  --footer-spacing: 3rem;
+  --section-spacing: 4rem;
+  --card-min-height: 300px;
+
+  /* ==========================================================================
+     COMPONENTS - Buttons
+     ========================================================================== */
+  --btn-padding-y: 0.75rem;
+  --btn-padding-x: 1.5rem;
+  --btn-font-size: 1rem;
+  --btn-font-weight: 600;
+  --btn-border-radius: var(--radius-md);
+  --btn-transition: all var(--transition-base);
+
+  /* ==========================================================================
+     COMPONENTS - Forms
+     ========================================================================== */
+  --input-padding-y: 0.75rem;
+  --input-padding-x: 1rem;
+  --input-font-size: 1rem;
+  --input-border-color: var(--border-color);
+  --input-border-radius: var(--radius-md);
+  --input-focus-border-color: var(--primary-purple);
+  --input-focus-shadow: 0 0 0 3px var(--purple-tint);
+}
+
+/* ==========================================================================
+   DARK MODE OVERRIDES (Optional - for future use)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root.auto-dark {
+    --text-primary: #f8f9fa;
+    --text-secondary: #dee2e6;
+    --text-muted: #adb5bd;
+    --light-gray: #212529;
+    --border-color: #495057;
+    --card-border: #495057;
+  }
+}

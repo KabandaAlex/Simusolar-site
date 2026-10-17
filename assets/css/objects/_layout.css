@@ -1,0 +1,349 @@
+/**
+ * Tulima Solar - Layout Objects
+ * Objects: Layout (ITCSS Layer 5)
+ * 
+ * Layout patterns: containers, grids, flex utilities, sections
+ * These are structural patterns without visual styling
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+.l-container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+@media (min-width: 576px) {
+  .l-container {
+    max-width: var(--container-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .l-container {
+    max-width: var(--container-md);
+  }
+}
+
+@media (min-width: 992px) {
+  .l-container {
+    max-width: var(--container-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .l-container {
+    max-width: var(--container-xl);
+  }
+}
+
+@media (min-width: 1400px) {
+  .l-container {
+    max-width: var(--container-2xl);
+  }
+}
+
+/* Container variants */
+.l-container--fluid {
+  max-width: 100%;
+}
+
+.l-container--narrow {
+  max-width: 800px;
+}
+
+.l-container--wide {
+  max-width: 1500px;
+}
+
+.l-container--full {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ==========================================================================
+   GRID SYSTEM
+   ========================================================================== */
+
+.l-grid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+/* Auto-fit grid */
+.l-grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Fixed column grids */
+.l-grid--2 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.l-grid--3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.l-grid--4 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 576px) {
+  .l-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .l-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .l-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .l-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .l-grid--4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .l-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Grid gap variants */
+.l-grid--gap-sm { gap: var(--spacing-4); }
+.l-grid--gap-md { gap: var(--spacing-6); }
+.l-grid--gap-lg { gap: var(--spacing-8); }
+.l-grid--gap-xl { gap: var(--spacing-12); }
+
+/* Grid span utilities */
+.l-grid__col-span-2 { grid-column: span 2; }
+.l-grid__col-span-3 { grid-column: span 3; }
+.l-grid__row-span-2 { grid-row: span 2; }
+
+@media (max-width: 767.98px) {
+  .l-grid__col-span-2,
+  .l-grid__col-span-3 {
+    grid-column: span 1;
+  }
+}
+
+/* ==========================================================================
+   FLEXBOX UTILITIES
+   ========================================================================== */
+
+.l-flex {
+  display: flex;
+}
+
+.l-flex--inline {
+  display: inline-flex;
+}
+
+/* Direction */
+.l-flex--row { flex-direction: row; }
+.l-flex--row-reverse { flex-direction: row-reverse; }
+.l-flex--column { flex-direction: column; }
+.l-flex--column-reverse { flex-direction: column-reverse; }
+
+/* Wrap */
+.l-flex--wrap { flex-wrap: wrap; }
+.l-flex--nowrap { flex-wrap: nowrap; }
+.l-flex--wrap-reverse { flex-wrap: wrap-reverse; }
+
+/* Justify content */
+.l-flex--justify-start { justify-content: flex-start; }
+.l-flex--justify-end { justify-content: flex-end; }
+.l-flex--justify-center { justify-content: center; }
+.l-flex--justify-between { justify-content: space-between; }
+.l-flex--justify-around { justify-content: space-around; }
+.l-flex--justify-evenly { justify-content: space-evenly; }
+
+/* Align items */
+.l-flex--align-start { align-items: flex-start; }
+.l-flex--align-end { align-items: flex-end; }
+.l-flex--align-center { align-items: center; }
+.l-flex--align-baseline { align-items: baseline; }
+.l-flex--align-stretch { align-items: stretch; }
+
+/* Align content (for multi-line) */
+.l-flex--content-start { align-content: flex-start; }
+.l-flex--content-end { align-content: flex-end; }
+.l-flex--content-center { align-content: center; }
+.l-flex--content-between { align-content: space-between; }
+.l-flex--content-around { align-content: space-around; }
+
+/* Gap utilities */
+.l-flex--gap-sm { gap: var(--spacing-2); }
+.l-flex--gap-md { gap: var(--spacing-4); }
+.l-flex--gap-lg { gap: var(--spacing-6); }
+.l-flex--gap-xl { gap: var(--spacing-8); }
+
+/* Flex grow/shrink */
+.l-flex__grow { flex-grow: 1; }
+.l-flex__shrink-0 { flex-shrink: 0; }
+.l-flex__1 { flex: 1; }
+.l-flex__auto { flex: auto; }
+.l-flex__none { flex: none; }
+
+/* Align self */
+.l-flex__self-start { align-self: flex-start; }
+.l-flex__self-end { align-self: flex-end; }
+.l-flex__self-center { align-self: center; }
+.l-flex__self-stretch { align-self: stretch; }
+
+/* ==========================================================================
+   SECTION LAYOUT
+   ========================================================================== */
+
+.l-section {
+  padding-top: var(--spacing-12);
+  padding-bottom: var(--spacing-12);
+}
+
+.l-section--sm {
+  padding-top: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
+.l-section--lg {
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+}
+
+.l-section--xl {
+  padding-top: var(--spacing-20);
+  padding-bottom: var(--spacing-20);
+}
+
+/* Section with background */
+.l-section--gray {
+  background-color: var(--light-gray);
+}
+
+.l-section--purple {
+  background-color: var(--light-purple);
+}
+
+.l-section--green {
+  background-color: var(--light-green);
+}
+
+.l-section--orange {
+  background-color: var(--light-orange);
+}
+
+.l-section--dark {
+  background-color: var(--dark-purple);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   HEADER/FOOTER LAYOUT
+   ========================================================================== */
+
+.l-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  min-height: var(--navbar-height);
+}
+
+.l-footer {
+  margin-top: auto;
+  padding-top: var(--footer-spacing);
+  padding-bottom: var(--footer-spacing);
+}
+
+/* ==========================================================================
+   SPLIT LAYOUT
+   ========================================================================== */
+
+.l-split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+@media (min-width: 768px) {
+  .l-split {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .l-split--50 {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .l-split--50 > * {
+    flex: 1;
+  }
+  
+  .l-split--60-40 > *:first-child {
+    flex: 6;
+  }
+  
+  .l-split--60-40 > *:last-child {
+    flex: 4;
+  }
+  
+  .l-split--40-60 > *:first-child {
+    flex: 4;
+  }
+  
+  .l-split--40-60 > *:last-child {
+    flex: 6;
+  }
+}
+
+/* ==========================================================================
+   CENTER CONTENT
+   ========================================================================== */
+
+.l-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.l-center--full {
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   MAX-WIDTH UTILITIES
+   ========================================================================== */
+
+.l-max-width--sm { max-width: 400px; }
+.l-max-width--md { max-width: 600px; }
+.l-max-width--lg { max-width: 800px; }
+.l-max-width--xl { max-width: 1000px; }
+.l-max-width--none { max-width: none; }
+
+.l-max-width--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   POSITION UTILITIES
+   ========================================================================== */
+
+.l-relative { position: relative; }
+.l-absolute { position: absolute; }
+.l-fixed { position: fixed; }
+.l-sticky { position: sticky; }
+
+/* ==========================================================================
+   OVERFLOW
+   ========================================================================== */
+
+.l-overflow-hidden { overflow: hidden; }
+.l-overflow-auto { overflow: auto; }
+.l-overflow-x-auto { overflow-x: auto; }
+.l-overflow-y-auto { overflow-y: auto; }

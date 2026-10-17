@@ -1,0 +1,274 @@
+/**
+ * Tulima Solar - CSS Functions
+ * Tools: Functions (ITCSS Layer 2)
+ * 
+ * CSS custom properties and calc-based utilities
+ * These provide functional patterns for common calculations
+ * 
+ * @version 1.0.0
+ */
+
+:root {
+  /* ==========================================================================
+     SPACING FUNCTIONS
+     ========================================================================== */
+  
+  /**
+   * Spacing multipliers for consistent scaling
+   * Usage: padding: calc(var(--spacing-base) * 2);
+   */
+  --spacing-base: 1rem;
+
+  /* ==========================================================================
+     TYPOGRAPHY FUNCTIONS
+     ========================================================================== */
+  
+  /**
+   * Fluid typography scale using clamp()
+   * These provide responsive font sizes without media queries
+   */
+  --fluid-min-width: 320;
+  --fluid-max-width: 1200;
+  
+  /* Hero title: scales from 1.75rem to 3rem */
+  --fluid-hero: clamp(1.75rem, 4vw, 3rem);
+  
+  /* Section title: scales from 1.5rem to 2rem */
+  --fluid-section-title: clamp(1.5rem, 3vw, 2rem);
+  
+  /* Body text: scales from 1rem to 1.125rem */
+  --fluid-body: clamp(1rem, 1.5vw, 1.125rem);
+  
+  /* Lead text: scales from 1.125rem to 1.25rem */
+  --fluid-lead: clamp(1.125rem, 2vw, 1.25rem);
+
+  /* ==========================================================================
+     LAYOUT CALCULATIONS
+     ========================================================================== */
+  
+  /**
+   * Full viewport height minus navbar
+   * Usage: height: var(--vh-full);
+   */
+  --vh-full: calc(100vh - var(--navbar-height));
+  
+  /**
+   * Minimum viewport height for hero sections
+   * Usage: min-height: var(--vh-min-hero);
+   */
+  --vh-min-hero: calc(100vh - var(--navbar-height));
+  
+  /**
+   * Content width with sidebar consideration
+   * Usage: max-width: var(--content-width);
+   */
+  --content-width: calc(100% - var(--spacing-8));
+
+  /* ==========================================================================
+     COLOR MANIPULATION
+     ========================================================================== */
+  
+  /**
+   * Pre-calculated color variations
+   * These are computed at runtime using the base colors
+   */
+  --primary-purple-rgb: 102, 0, 153;
+  --secondary-green-rgb: 176, 215, 171;
+  --accent-orange-rgb: 233, 142, 57;
+  --dark-purple-rgb: 74, 0, 102;
+  --text-primary-rgb: 44, 44, 44;
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+
+  /* ==========================================================================
+     SHADOW GENERATORS
+     ========================================================================== */
+  
+  /**
+   * Dynamic shadow depths
+   * Usage: box-shadow: var(--shadow-depth-1);
+   */
+  --shadow-depth-1: 0 1px 3px rgba(var(--black-rgb), 0.12), 
+                    0 1px 2px rgba(var(--black-rgb), 0.24);
+  --shadow-depth-2: 0 3px 6px rgba(var(--black-rgb), 0.15), 
+                    0 2px 4px rgba(var(--black-rgb), 0.12);
+  --shadow-depth-3: 0 10px 20px rgba(var(--black-rgb), 0.15), 
+                    0 3px 6px rgba(var(--black-rgb), 0.10);
+  --shadow-depth-4: 0 15px 25px rgba(var(--black-rgb), 0.15), 
+                    0 5px 10px rgba(var(--black-rgb), 0.05);
+  --shadow-depth-5: 0 20px 40px rgba(var(--black-rgb), 0.2);
+
+  /* ==========================================================================
+     BACKDROP BLUR
+     ========================================================================== */
+  
+  /**
+   * Frosted glass effect
+   * Usage: backdrop-filter: var(--blur-sm);
+   */
+  --blur-sm: blur(4px);
+  --blur-md: blur(8px);
+  --blur-lg: blur(16px);
+  --blur-xl: blur(24px);
+
+  /* ==========================================================================
+     GRADIENT ANGLES
+     ========================================================================== */
+  
+  /**
+   * Common gradient angles
+   * Usage: background: linear-gradient(var(--angle-diagonal), ...);
+   */
+  --angle-horizontal: 90deg;
+  --angle-vertical: 180deg;
+  --angle-diagonal: 135deg;
+  --angle-diagonal-reverse: 45deg;
+  --angle-radial: radial-gradient(circle at center, var(--primary-purple), var(--dark-purple));
+}
+
+/* ==========================================================================
+   DYNAMIC COLOR UTILITIES
+   ========================================================================== */
+
+/**
+ * Background colors with opacity using RGB values
+ * Usage: class="u-bg-primary-50" for 50% opacity primary
+ */
+.u-bg-primary-90 { background-color: rgba(var(--primary-purple-rgb), 0.9); }
+.u-bg-primary-80 { background-color: rgba(var(--primary-purple-rgb), 0.8); }
+.u-bg-primary-70 { background-color: rgba(var(--primary-purple-rgb), 0.7); }
+.u-bg-primary-50 { background-color: rgba(var(--primary-purple-rgb), 0.5); }
+.u-bg-primary-30 { background-color: rgba(var(--primary-purple-rgb), 0.3); }
+.u-bg-primary-10 { background-color: rgba(var(--primary-purple-rgb), 0.1); }
+
+.u-bg-green-90 { background-color: rgba(var(--secondary-green-rgb), 0.9); }
+.u-bg-green-80 { background-color: rgba(var(--secondary-green-rgb), 0.8); }
+.u-bg-green-70 { background-color: rgba(var(--secondary-green-rgb), 0.7); }
+.u-bg-green-50 { background-color: rgba(var(--secondary-green-rgb), 0.5); }
+.u-bg-green-30 { background-color: rgba(var(--secondary-green-rgb), 0.3); }
+.u-bg-green-10 { background-color: rgba(var(--secondary-green-rgb), 0.1); }
+
+.u-bg-orange-90 { background-color: rgba(var(--accent-orange-rgb), 0.9); }
+.u-bg-orange-80 { background-color: rgba(var(--accent-orange-rgb), 0.8); }
+.u-bg-orange-70 { background-color: rgba(var(--accent-orange-rgb), 0.7); }
+.u-bg-orange-50 { background-color: rgba(var(--accent-orange-rgb), 0.5); }
+.u-bg-orange-30 { background-color: rgba(var(--accent-orange-rgb), 0.3); }
+.u-bg-orange-10 { background-color: rgba(var(--accent-orange-rgb), 0.1); }
+
+.u-bg-black-90 { background-color: rgba(var(--black-rgb), 0.9); }
+.u-bg-black-80 { background-color: rgba(var(--black-rgb), 0.8); }
+.u-bg-black-70 { background-color: rgba(var(--black-rgb), 0.7); }
+.u-bg-black-50 { background-color: rgba(var(--black-rgb), 0.5); }
+.u-bg-black-30 { background-color: rgba(var(--black-rgb), 0.3); }
+
+.u-bg-white-90 { background-color: rgba(var(--white-rgb), 0.9); }
+.u-bg-white-80 { background-color: rgba(var(--white-rgb), 0.8); }
+.u-bg-white-70 { background-color: rgba(var(--white-rgb), 0.7); }
+.u-bg-white-50 { background-color: rgba(var(--white-rgb), 0.5); }
+.u-bg-white-30 { background-color: rgba(var(--white-rgb), 0.3); }
+.u-bg-white-10 { background-color: rgba(var(--white-rgb), 0.1); }
+
+/* ==========================================================================
+   TEXT COLORS WITH OPACITY
+   ========================================================================== */
+
+.u-text-primary-90 { color: rgba(var(--primary-purple-rgb), 0.9); }
+.u-text-primary-80 { color: rgba(var(--primary-purple-rgb), 0.8); }
+.u-text-primary-70 { color: rgba(var(--primary-purple-rgb), 0.7); }
+.u-text-primary-50 { color: rgba(var(--primary-purple-rgb), 0.5); }
+
+.u-text-black-90 { color: rgba(var(--black-rgb), 0.9); }
+.u-text-black-80 { color: rgba(var(--black-rgb), 0.8); }
+.u-text-black-70 { color: rgba(var(--black-rgb), 0.7); }
+.u-text-black-50 { color: rgba(var(--black-rgb), 0.5); }
+
+.u-text-white-90 { color: rgba(var(--white-rgb), 0.9); }
+.u-text-white-80 { color: rgba(var(--white-rgb), 0.8); }
+.u-text-white-70 { color: rgba(var(--white-rgb), 0.7); }
+.u-text-white-50 { color: rgba(var(--white-rgb), 0.5); }
+
+/* ==========================================================================
+   BORDER COLORS WITH OPACITY
+   ========================================================================== */
+
+.u-border-primary-50 { border-color: rgba(var(--primary-purple-rgb), 0.5); }
+.u-border-primary-30 { border-color: rgba(var(--primary-purple-rgb), 0.3); }
+.u-border-primary-20 { border-color: rgba(var(--primary-purple-rgb), 0.2); }
+
+/* ==========================================================================
+   SAFE AREA INSETS (for mobile devices)
+   ========================================================================== */
+
+/**
+ * Safe area padding for notched devices
+ * Usage: padding-bottom: var(--safe-area-bottom);
+ */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+}
+
+/* Apply safe area to body by default */
+.safe-area-inset {
+  padding-top: var(--safe-area-top);
+  padding-right: var(--safe-area-right);
+  padding-bottom: var(--safe-area-bottom);
+  padding-left: var(--safe-area-left);
+}
+
+/* ==========================================================================
+   SCROLL SNAP UTILITIES
+   ========================================================================== */
+
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+}
+
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+}
+
+.scroll-snap-end {
+  scroll-snap-align: end;
+}
+
+/* ==========================================================================
+   SCROLLBAR STYLING (Webkit)
+   ========================================================================== */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: var(--radius-full);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: var(--radius-full);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--light-gray);
+}

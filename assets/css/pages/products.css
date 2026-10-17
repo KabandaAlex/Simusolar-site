@@ -1,0 +1,631 @@
+/**
+ * Products Page
+ * - Hero + sections styling
+ * - Product details modal (View Details)
+ */
+
+/* ==========================================================================
+   HERO (similar to contact/projects hero)
+   ========================================================================== */
+
+.page-products .c-page-hero {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #581c87 70%, #6b21a8 100%);
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.page-products .c-page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.page-products .c-page-hero__background {
+  background-size: cover;
+  background-position: center;
+  opacity: 0.06;
+}
+
+.page-products .c-page-hero__overlay {
+  background: transparent;
+}
+
+.page-products .c-page-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 640px;
+}
+
+.page-products .c-page-hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: var(--spacing-3);
+}
+
+.page-products .c-page-hero__subtitle {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   PRODUCT SECTIONS (match Impact page feel)
+   ========================================================================== */
+
+/* Product range section – similar to i-environmental */
+.page-products #product-range {
+  padding: var(--spacing-16) var(--spacing-4);
+  background: var(--white);
+}
+
+.page-products #product-range .c-section__container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+.page-products #product-range .c-section__header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+}
+
+.page-products #product-range .c-section__pretitle {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-2);
+}
+
+.page-products #product-range .c-section__title {
+  font-family: var(--font-header);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.page-products #product-range .c-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.page-products #product-range .c-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-10);
+}
+
+@media (min-width: 576px) {
+  .page-products #product-range .c-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .page-products #product-range .c-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-10);
+  }
+}
+
+.page-products #product-range .c-card--category {
+  padding: var(--spacing-8);
+  background: linear-gradient(180deg, var(--light-gray) 0%, #f8fafc 100%);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.page-products #product-range .c-card--category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.page-products #product-range .c-card__body {
+  padding-top: var(--spacing-6);
+}
+
+.page-products #product-range .c-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Product catalog – similar to i-community */
+.page-products #catalog {
+  padding: var(--spacing-16) var(--spacing-4);
+  background: linear-gradient(180deg, var(--light-gray) 0%, #f1f5f9 100%);
+}
+
+.page-products #catalog .c-section__container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+.page-products #catalog .c-section__header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+}
+
+.page-products #catalog .c-section__pretitle {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-2);
+}
+
+.page-products #catalog .c-section__title {
+  font-family: var(--font-header);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.page-products #catalog .c-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.page-products #catalog .c-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-10);
+}
+
+@media (min-width: 576px) {
+  .page-products #catalog .c-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .page-products #catalog .c-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-10);
+  }
+}
+
+.page-products #catalog .c-card--product {
+  padding: var(--spacing-8);
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.page-products #catalog .c-card--product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.page-products #catalog .c-card__body {
+  padding-top: var(--spacing-5);
+}
+
+.page-products #catalog .c-card__excerpt {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.page-products #catalog .c-card__footer {
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.page-products #catalog .c-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  justify-content: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .page-products #catalog .c-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-products #catalog .c-card__actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Why Choose Solar Power – match live products section */
+.page-products #why-solar {
+  padding: var(--spacing-16) var(--spacing-4) var(--spacing-18);
+  background: var(--white);
+}
+
+.page-products #why-solar .c-section__container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+.page-products #why-solar .c-section__header {
+  text-align: center;
+  margin-bottom: var(--spacing-10);
+}
+
+.page-products #why-solar .c-section__pretitle {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-2);
+}
+
+.page-products #why-solar .c-section__title {
+  font-family: var(--font-header);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.page-products #why-solar .c-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.page-products .p-why-solar__columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-10);
+}
+
+@media (min-width: 992px) {
+  .page-products .p-why-solar__columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+  }
+}
+
+.page-products .p-why-solar__column {
+  padding: var(--spacing-6);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #f9fafb 0%, #f1f5f9 100%);
+}
+
+.page-products .p-why-solar__heading {
+  font-family: var(--font-header);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.page-products .p-why-solar__heading span {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--primary-purple);
+  margin-top: var(--spacing-1);
+}
+
+.page-products .p-why-solar__list {
+  margin: 0;
+  padding-left: var(--spacing-5);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.page-products .p-why-solar__list li {
+  margin-bottom: var(--spacing-1);
+}
+
+.page-products .p-why-solar__table-wrap {
+  margin: 0 auto var(--spacing-10);
+  max-width: 900px;
+  overflow-x: auto;
+}
+
+.page-products .p-why-solar__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.page-products .p-why-solar__table thead {
+  background: transparent;
+}
+
+.page-products .p-why-solar__table th,
+.page-products .p-why-solar__table td {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--font-size-sm);
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.page-products .p-why-solar__table thead th {
+  color: var(--white);
+  border-bottom-color: rgba(15, 23, 42, 0.15);
+}
+
+/* Gradient header like live site */
+.page-products .p-why-solar__table thead th:nth-child(1) {
+  background: linear-gradient(90deg, #111827 0%, #1f2937 60%, #4b5563 100%);
+}
+
+.page-products .p-why-solar__table thead th:nth-child(2) {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+
+.page-products .p-why-solar__table thead th:nth-child(3) {
+  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+}
+
+.page-products .p-why-solar__table th span {
+  display: block;
+  font-weight: 500;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.page-products .p-why-solar__table tbody tr:nth-child(odd) {
+  background-color: var(--white);
+}
+
+.page-products .p-why-solar__table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.page-products .p-why-solar__table tbody tr:last-child th,
+.page-products .p-why-solar__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.page-products .p-why-solar__table th[scope="row"] {
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 32%;
+}
+
+/* Column backgrounds and icons per cell */
+.page-products .p-why-solar__table tbody td:nth-child(2) {
+  background-color: #ecfdf3;
+  position: relative;
+  padding-left: calc(var(--spacing-5) + 18px);
+}
+
+.page-products .p-why-solar__table tbody td:nth-child(2)::before {
+  content: '✔';
+  position: absolute;
+  left: var(--spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-products .p-why-solar__table tbody td:nth-child(3) {
+  background-color: #fef2f2;
+  position: relative;
+  padding-left: calc(var(--spacing-5) + 18px);
+}
+
+.page-products .p-why-solar__table tbody td:nth-child(3)::before {
+  content: '!';
+  position: absolute;
+  left: var(--spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-products .p-why-solar__notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .page-products .p-why-solar__notes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.page-products .p-why-solar__note {
+  padding: var(--spacing-6);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #f9fafb;
+}
+
+.page-products .p-why-solar__note h3 {
+  font-family: var(--font-header);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-2);
+}
+
+.page-products .p-why-solar__note p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   PRODUCT DETAILS MODAL
+   ========================================================================== */
+
+.c-product-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 990;
+}
+
+.c-product-modal__overlay[data-open="1"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.c-product-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  max-width: 900px;
+  max-height: 90vh;
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+  padding: var(--spacing-8);
+  overflow: auto;
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  z-index: 995;
+}
+
+.c-product-modal[data-open="1"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.c-product-modal__close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.c-product-modal__close:hover {
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.c-product-modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.c-product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: var(--spacing-6);
+}
+
+.c-product-detail__image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  display: block;
+}
+
+.c-product-detail__category {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-purple);
+  margin: 0 0 var(--spacing-2);
+}
+
+.c-product-detail__title {
+  font-family: var(--font-header);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.c-product-detail__summary {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.c-product-detail__description {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.c-product-detail__actions {
+  margin-top: var(--spacing-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+@media (max-width: 767.98px) {
+  .c-product-modal {
+    padding: var(--spacing-6) var(--spacing-4);
+  }
+
+  .c-product-detail {
+    grid-template-columns: 1fr;
+  }
+}
+

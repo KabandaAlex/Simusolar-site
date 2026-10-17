@@ -1,0 +1,770 @@
+/* Surface Pumps Page Enhancement CSS */
+/* This file provides professional styling for the surface pumps page */
+
+/* Additional Professional Enhancements */
+
+/* Ensure consistent spacing and alignment */
+.surface-pumps-intro,
+.surface-pumps-range,
+.applications-section,
+.advantages-section,
+.specifications-section {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced section backgrounds with subtle patterns */
+.bg-professional-pattern {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-professional-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="surface-pattern" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.5" fill="%23660099" opacity="0.03"/><circle cx="10" cy="10" r="1" fill="%23e98e39" opacity="0.02"/><polygon points="50,20 55,25 50,30 45,25" fill="%23b0d7ab" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23surface-pattern)"/></svg>');
+    z-index: 1;
+}
+
+.bg-professional-pattern .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced gradient backgrounds */
+.bg-gradient-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+    position: relative;
+}
+
+/* Improved card shadows and hover effects */
+.tech-feature-card,
+.surface-pumps-range .product-card,
+.applications-section .service-card,
+.advantages-section .service-card,
+.specifications-section .service-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-feature-card:hover,
+.surface-pumps-range .product-card:hover,
+.applications-section .service-card:hover,
+.advantages-section .service-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced table styling */
+.specifications-section .table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.specifications-section .table thead th {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: var(--white);
+    border: none;
+    padding: 1.25rem 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.specifications-section .table tbody td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.specifications-section .table tbody tr:hover {
+    background: rgba(102, 0, 153, 0.05);
+    transform: scale(1.01);
+}
+
+.specifications-section .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Enhanced icon styling */
+.tech-feature-card i {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.tech-feature-card:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.applications-section .card-icon-wrapper,
+.advantages-section .card-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 0, 153, 0.3);
+}
+
+.applications-section .service-card:hover .card-icon-wrapper,
+.advantages-section .service-card:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(102, 0, 153, 0.4);
+}
+
+/* Enhanced product image styling */
+.surface-pumps-range .product-image {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.surface-pumps-range .product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.surface-pumps-range .product-card:hover .product-image::before {
+    transform: translateX(100%);
+}
+
+/* Enhanced text styling - Specific to surface pumps sections */
+.surface-pumps-intro .section-title,
+.surface-pumps-range .section-title,
+.applications-section .section-title,
+.advantages-section .section-title,
+.specifications-section .section-title {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.surface-pumps-intro .section-title::after,
+.surface-pumps-range .section-title::after,
+.applications-section .section-title::after,
+.advantages-section .section-title::after,
+.specifications-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+    border-radius: 2px;
+}
+
+/* Enhanced section Badge */
+.section-badge {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px rgba(102, 0, 153, 0.3);
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.section-badge:hover::before {
+    left: 100%;
+}
+
+.section-badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(102, 0, 153, 0.4);
+}
+
+/* Enhanced Section Title - Specific to surface pumps sections */
+.surface-pumps-intro .section-title,
+.surface-pumps-range .section-title,
+.applications-section .section-title,
+.advantages-section .section-title,
+.specifications-section .section-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--medium-gray);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Understanding Surface Pump Technology Section */
+.surface-pumps-intro {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.surface-pumps-intro .lead {
+    font-size: 1.25rem;
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.surface-pumps-intro p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Feature Highlight Cards for Technology Section */
+.tech-feature-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+}
+
+.tech-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.tech-feature-card i {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.tech-feature-card h5 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.tech-feature-card p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Enhanced Product Cards for Surface Pump Range */
+.surface-pumps-range .product-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+}
+
+.surface-pumps-range .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+}
+
+.surface-pumps-range .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.surface-pumps-range .product-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.surface-pumps-range .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.surface-pumps-range .product-image .placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    color: var(--medium-gray);
+    font-size: 3rem;
+}
+
+.surface-pumps-range .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.surface-pumps-range .product-content {
+    padding: 1.5rem;
+    background: var(--white);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.surface-pumps-range .product-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+    line-height: 1.3;
+}
+
+.surface-pumps-range .product-content p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.surface-pumps-range .product-price {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.surface-pumps-range .product-price .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+/* Enhanced Service Cards for Applications Section */
+.applications-section .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.applications-section .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+}
+
+.applications-section .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.applications-section .card-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    transition: all 0.3s ease;
+}
+
+.applications-section .service-card:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.applications-section .card-icon {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.applications-section .card-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.applications-section .card-content p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Enhanced Service Cards for Advantages Section */
+.advantages-section .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantages-section .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+}
+
+.advantages-section .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.advantages-section .card-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    transition: all 0.3s ease;
+}
+
+.advantages-section .service-card:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.advantages-section .card-icon {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.advantages-section .card-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.advantages-section .card-content p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Enhanced Technical Specifications Section */
+.specifications-section .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.specifications-section .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green));
+}
+
+.specifications-section .table {
+    margin-bottom: 0;
+}
+
+.specifications-section .table thead th {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.specifications-section .table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+}
+
+.specifications-section .table tbody tr:hover {
+    background: rgba(102, 0, 153, 0.05);
+}
+
+.specifications-section .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Product Overlay */
+.surface-pumps-range .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.surface-pumps-range .product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.surface-pumps-range .product-overlay .btn {
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.surface-pumps-range .product-card:hover .product-overlay .btn {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .surface-pumps-intro .section-title,
+    .surface-pumps-range .section-title,
+    .applications-section .section-title,
+    .advantages-section .section-title,
+    .specifications-section .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .tech-feature-card {
+        padding: 1.5rem;
+    }
+    
+    .applications-section .service-card,
+    .advantages-section .service-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .specifications-section .service-card {
+        padding: 2rem;
+    }
+    
+    .surface-pumps-range .product-image {
+        height: 220px;
+        padding: 15px;
+    }
+    
+    .surface-pumps-range .product-content {
+        padding: 1.25rem;
+    }
+
+    .surface-pumps-intro .section-title::after,
+    .surface-pumps-range .section-title::after,
+    .applications-section .section-title::after,
+    .advantages-section .section-title::after,
+    .specifications-section .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    .tech-feature-card i {
+        font-size: 2.5rem;
+    }
+    
+    .applications-section .card-icon-wrapper,
+    .advantages-section .card-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .applications-section .card-icon,
+    .advantages-section .card-icon {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .surface-pumps-intro .section-title,
+    .surface-pumps-range .section-title,
+    .applications-section .section-title,
+    .advantages-section .section-title,
+    .specifications-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .tech-feature-card {
+        padding: 1.25rem;
+    }
+    
+    .applications-section .service-card,
+    .advantages-section .service-card {
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .specifications-section .service-card {
+        padding: 1.5rem;
+    }
+    
+    .surface-pumps-range .product-image {
+        height: 200px;
+        padding: 12px;
+    }
+    
+    .surface-pumps-range .product-content {
+        padding: 1rem;
+    }
+    
+    .surface-pumps-range .product-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .applications-section .card-content h4,
+    .advantages-section .card-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .section-title::after {
+        width: 50px;
+        height: 2px;
+    }
+    
+    .tech-feature-card i {
+        font-size: 2rem;
+    }
+    
+    .applications-section .card-icon-wrapper,
+    .advantages-section .card-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .applications-section .card-icon,
+    .advantages-section .card-icon {
+        font-size: 1.5rem;
+    }
+    
+    .specifications-section .table thead th,
+    .specifications-section .table tbody td {
+        padding: 1rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .surface-pumps-range .product-image {
+        height: 180px;
+        padding: 10px;
+    }
+    
+    .surface-pumps-range .product-content {
+        padding: 0.875rem;
+    }
+    
+    .surface-pumps-range .product-content h4 {
+        font-size: 1rem;
+    }
+    
+    .applications-section .card-content h4,
+    .advantages-section .card-content h4 {
+        font-size: 1rem;
+    }
+}

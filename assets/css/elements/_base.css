@@ -1,0 +1,382 @@
+/**
+ * Tulima Solar - Base Element Styles
+ * Elements: Base (ITCSS Layer 4)
+ * 
+ * Styling for bare HTML elements
+ * These are the foundation styles that cascade down
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   HTML & BODY
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--navbar-height, 70px) + var(--spacing-4, 1rem));
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-primary);
+  background-color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Main content area should expand to fill available space */
+main,
+.l-main {
+  flex: 1;
+}
+
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-md);
+}
+
+/* Responsive heading sizes */
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+  
+  h4 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ==========================================================================
+   PARAGRAPHS
+   ========================================================================== */
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lead paragraph - introductory text */
+.lead,
+.e-lead {
+  font-size: var(--fluid-lead);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+  color: var(--primary-purple);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--dark-purple);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Links in content areas */
+.c-content a,
+.e-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.c-content a:hover,
+.e-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-6);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--spacing-2);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested lists */
+li > ul,
+li > ol {
+  margin-top: var(--spacing-2);
+  margin-bottom: 0;
+}
+
+/* Unstyled list */
+.list-unstyled,
+.e-list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Inline list */
+.list-inline,
+.e-list-inline {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.list-inline li {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   BLOCKQUOTE
+   ========================================================================== */
+
+blockquote {
+  margin: var(--spacing-6) 0;
+  padding: var(--spacing-4) var(--spacing-6);
+  border-left: 4px solid var(--primary-purple);
+  background-color: var(--light-gray);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+blockquote cite::before {
+  content: '— ';
+}
+
+/* ==========================================================================
+   CODE
+   ========================================================================== */
+
+code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.875em;
+  padding: 0.125em 0.375em;
+  background-color: var(--light-purple);
+  border-radius: var(--radius-sm);
+  color: var(--dark-purple);
+}
+
+pre {
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-4);
+  background-color: var(--light-gray);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  font-size: var(--font-size-sm);
+  color: inherit;
+}
+
+/* ==========================================================================
+   IMAGES
+   ========================================================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: var(--spacing-6) 0;
+}
+
+figcaption {
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+table {
+  width: 100%;
+  margin-bottom: var(--spacing-6);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--light-gray);
+  border-bottom-width: 2px;
+}
+
+tbody tr:hover {
+  background-color: var(--light-gray);
+}
+
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+hr {
+  margin: var(--spacing-8) 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   MARK / HIGHLIGHT
+   ========================================================================== */
+
+mark {
+  padding: 0.1em 0.2em;
+  background-color: var(--light-orange);
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   SELECTION
+   ========================================================================== */
+
+::selection {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,424 @@
+/**
+ * Tulima Solar - Section Components
+ * Components: Sections (ITCSS Layer 6)
+ * 
+ * Generic section styles for page building
+ * BEM naming: .c-section, .c-section__header, etc.
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   SECTION BASE
+   ========================================================================== */
+
+.c-section {
+  padding: var(--spacing-16) 0;
+  position: relative;
+}
+
+.c-section--sm {
+  padding: var(--spacing-10) 0;
+}
+
+.c-section--lg {
+  padding: var(--spacing-20) 0;
+}
+
+.c-section--xl {
+  padding: var(--spacing-24) 0;
+}
+
+/* ==========================================================================
+   SECTION BACKGROUNDS
+   ========================================================================== */
+
+.c-section--white {
+  background-color: var(--white);
+}
+
+.c-section--gray {
+  background-color: var(--light-gray);
+}
+
+.c-section--purple {
+  background-color: var(--light-purple);
+}
+
+.c-section--green {
+  background-color: var(--light-green);
+}
+
+.c-section--orange {
+  background-color: var(--light-orange);
+}
+
+.c-section--dark {
+  background-color: var(--dark-purple);
+  color: var(--white);
+}
+
+.c-section--gradient {
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   SECTION CONTAINER
+   ========================================================================== */
+
+.c-section__container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+.c-section__container--narrow {
+  max-width: 800px;
+}
+
+.c-section__container--wide {
+  max-width: 1400px;
+}
+
+.c-section__container--full {
+  max-width: none;
+  padding: 0;
+}
+
+/* ==========================================================================
+   SECTION HEADER
+   ========================================================================== */
+
+.c-section__header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+}
+
+.c-section__header--left {
+  text-align: left;
+}
+
+.c-section__header--left .c-section__subtitle,
+.c-section__header--left .c-section__description {
+  margin-left: 0;
+}
+
+.c-section__pretitle {
+  display: inline-block;
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-purple);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+.c-section__title {
+  font-size: var(--fluid-section-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-tight);
+}
+
+.c-section--dark .c-section__title,
+.c-section--gradient .c-section__title {
+  color: var(--white);
+}
+
+.c-section__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-4);
+  line-height: var(--line-height-relaxed);
+}
+
+.c-section__description {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   SECTION CONTENT
+   ========================================================================== */
+
+.c-section__content {
+  position: relative;
+}
+
+/* ==========================================================================
+   SECTION FOOTER
+   ========================================================================== */
+
+.c-section__footer {
+  text-align: center;
+  margin-top: var(--spacing-10);
+}
+
+/* ==========================================================================
+   SECTION WITH BACKGROUND IMAGE
+   ========================================================================== */
+
+.c-section--bg-image {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.c-section--bg-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 0;
+}
+
+.c-section--bg-image .c-section__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark overlay variant */
+.c-section--bg-image-dark::before {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.c-section--bg-image-dark .c-section__title,
+.c-section--bg-image-dark .c-section__subtitle {
+  color: var(--white);
+}
+
+/* ==========================================================================
+   SECTION WITH PATTERN
+   ========================================================================== */
+
+.c-section--pattern {
+  position: relative;
+}
+
+.c-section--pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23660099' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.c-section--pattern .c-section__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   SECTION DIVIDERS
+   ========================================================================== */
+
+.c-section--divider-top {
+  padding-top: 0;
+}
+
+.c-section--divider-top::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: inherit;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  margin-bottom: -1px;
+}
+
+.c-section--divider-bottom {
+  padding-bottom: 0;
+}
+
+.c-section--divider-bottom::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+  margin-top: -1px;
+}
+
+/* ==========================================================================
+   CTA SECTION
+   ========================================================================== */
+
+.c-section--cta {
+  background: var(--gradient-primary);
+  color: var(--white);
+  text-align: center;
+  padding: var(--spacing-16) 0;
+}
+
+.c-section--cta .c-section__title {
+  color: var(--white);
+  font-size: var(--font-size-3xl);
+}
+
+.c-section--cta .c-section__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+}
+
+.c-section--cta .c-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-8);
+}
+
+/* ==========================================================================
+   FEATURES SECTION
+   ========================================================================== */
+
+.c-section--features {
+  padding: var(--spacing-16) 0;
+}
+
+.c-features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-8);
+}
+
+@media (min-width: 576px) {
+  .c-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .c-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   STATS SECTION
+   ========================================================================== */
+
+.c-section--stats {
+  background: var(--gradient-primary);
+  color: var(--white);
+  padding: var(--spacing-12) 0;
+}
+
+.c-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-6);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .c-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.c-stat__number {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  margin-bottom: var(--spacing-2);
+}
+
+.c-stat__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ==========================================================================
+   TWO-COLUMN SECTION
+   ========================================================================== */
+
+.c-section--two-col {
+  padding: var(--spacing-16) 0;
+}
+
+.c-two-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .c-two-col {
+    flex-direction: row;
+    gap: var(--spacing-12);
+  }
+  
+  .c-two-col--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.c-two-col__content {
+  flex: 1;
+}
+
+.c-two-col__media {
+  flex: 1;
+}
+
+.c-two-col__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+/* ==========================================================================
+   TESTIMONIALS SECTION
+   ========================================================================== */
+
+.c-section--testimonials {
+  background-color: var(--light-gray);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  .c-section {
+    padding: var(--spacing-10) 0;
+  }
+  
+  .c-section__header {
+    margin-bottom: var(--spacing-8);
+  }
+  
+  .c-section__title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .c-section__subtitle {
+    font-size: var(--font-size-base);
+  }
+}

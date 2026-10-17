@@ -1,0 +1,543 @@
+/**
+ * Tulima Solar - Form Components
+ * Components: Forms (ITCSS Layer 6)
+ * 
+ * Form styling for inputs, textareas, selects, and form layouts
+ * BEM naming: .c-form, .c-form__group, etc.
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   FORM BASE
+   ========================================================================== */
+
+.c-form {
+  width: 100%;
+}
+
+/* ==========================================================================
+   FORM GROUP
+   ========================================================================== */
+
+.c-form__group {
+  margin-bottom: var(--spacing-5);
+}
+
+.c-form__group:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   LABELS
+   ========================================================================== */
+
+.c-form__label {
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.c-form__label--required::after {
+  content: ' *';
+  color: var(--color-error);
+}
+
+/* ==========================================================================
+   TEXT INPUTS
+   ========================================================================== */
+
+.c-form__input {
+  display: block;
+  width: 100%;
+  padding: var(--input-padding-y) var(--input-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--input-font-size);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.c-form__input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.c-form__input:hover {
+  border-color: var(--text-muted);
+}
+
+.c-form__input:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+  outline: none;
+}
+
+.c-form__input:disabled {
+  background-color: var(--light-gray);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Input sizes */
+.c-form__input--sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+}
+
+.c-form__input--lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--font-size-lg);
+}
+
+/* ==========================================================================
+   TEXTAREA
+   ========================================================================== */
+
+.c-form__textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: var(--input-padding-y) var(--input-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--input-font-size);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-primary);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  resize: vertical;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.c-form__textarea:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+  outline: none;
+}
+
+/* ==========================================================================
+   SELECT
+   ========================================================================== */
+
+.c-form__select {
+  display: block;
+  width: 100%;
+  padding: var(--input-padding-y) var(--spacing-10) var(--input-padding-y) var(--input-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--input-font-size);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-3) center;
+  background-size: 16px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.c-form__select:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+  outline: none;
+}
+
+.c-form__select:disabled {
+  background-color: var(--light-gray);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CHECKBOX AND RADIO
+   ========================================================================== */
+
+.c-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  cursor: pointer;
+}
+
+.c-form__check-input {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.125rem;
+  accent-color: var(--primary-purple);
+  cursor: pointer;
+}
+
+.c-form__check-label {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* Custom checkbox styling */
+.c-form__check--custom {
+  position: relative;
+  padding-left: var(--spacing-8);
+}
+
+.c-form__check--custom .c-form__check-input {
+  position: absolute;
+  opacity: 0;
+  width: auto;
+}
+
+.c-form__check--custom .c-form__check-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.c-form__check--custom .c-form__check-input:checked + .c-form__check-box {
+  background-color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.c-form__check--custom .c-form__check-box::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.c-form__check--custom .c-form__check-input:checked + .c-form__check-box::after {
+  display: block;
+}
+
+.c-form__check--custom .c-form__check-input:focus + .c-form__check-box {
+  box-shadow: 0 0 0 3px var(--purple-tint);
+}
+
+/* Radio custom */
+.c-form__radio--custom .c-form__check-box {
+  border-radius: var(--radius-full);
+}
+
+.c-form__radio--custom .c-form__check-box::after {
+  left: 4px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--white);
+  transform: none;
+}
+
+/* ==========================================================================
+   INPUT WITH ICON
+   ========================================================================== */
+
+.c-form__input-icon {
+  position: relative;
+}
+
+.c-form__input-icon .c-form__input {
+  padding-left: var(--spacing-10);
+}
+
+.c-form__input-icon--right .c-form__input {
+  padding-left: var(--input-padding-x);
+  padding-right: var(--spacing-10);
+}
+
+.c-form__input-icon svg,
+.c-form__input-icon img {
+  position: absolute;
+  left: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.c-form__input-icon--right svg,
+.c-form__input-icon--right img {
+  left: auto;
+  right: var(--spacing-3);
+}
+
+/* ==========================================================================
+   INPUT GROUP
+   ========================================================================== */
+
+.c-form__input-group {
+  display: flex;
+  width: 100%;
+}
+
+.c-form__input-group .c-form__input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c-form__input-group .c-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c-form__input-group-addon {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-4);
+  background-color: var(--light-gray);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.c-form__input-group-addon:first-child {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c-form__input-group-addon:last-child {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ==========================================================================
+   FORM HELP TEXT
+   ========================================================================== */
+
+.c-form__help {
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   FORM VALIDATION STATES
+   ========================================================================== */
+
+.c-form__group--error .c-form__input,
+.c-form__group--error .c-form__textarea,
+.c-form__group--error .c-form__select {
+  border-color: var(--color-error);
+}
+
+.c-form__group--error .c-form__input:focus,
+.c-form__group--error .c-form__textarea:focus,
+.c-form__group--error .c-form__select:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.c-form__error {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+
+.c-form__error svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.c-form__group--success .c-form__input,
+.c-form__group--success .c-form__textarea,
+.c-form__group--success .c-form__select {
+  border-color: var(--color-success);
+}
+
+.c-form__group--success .c-form__input:focus,
+.c-form__group--success .c-form__textarea:focus,
+.c-form__group--success .c-form__select:focus {
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+}
+
+.c-form__success {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+}
+
+/* ==========================================================================
+   FORM ROW (Horizontal Layout)
+   ========================================================================== */
+
+.c-form__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.c-form__row .c-form__group {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   FORM INLINE
+   ========================================================================== */
+
+.c-form--inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--spacing-4);
+}
+
+.c-form--inline .c-form__group {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   FILE INPUT
+   ========================================================================== */
+
+.c-form__file {
+  position: relative;
+  display: inline-block;
+}
+
+.c-form__file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.c-form__file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--light-gray);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.c-form__file-label:hover {
+  background-color: var(--light-purple);
+  border-color: var(--primary-purple);
+}
+
+.c-form__file-input:focus + .c-form__file-label {
+  border-color: var(--primary-purple);
+  box-shadow: var(--input-focus-shadow);
+}
+
+/* ==========================================================================
+   SEARCH FORM
+   ========================================================================== */
+
+.c-form__search {
+  position: relative;
+  max-width: 400px;
+}
+
+.c-form__search .c-form__input {
+  padding-right: var(--spacing-12);
+}
+
+.c-form__search-btn {
+  position: absolute;
+  right: var(--spacing-1);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: var(--primary-purple);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.c-form__search-btn:hover {
+  background-color: var(--dark-purple);
+}
+
+.c-form__search-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   CONTACT FORM SPECIFIC
+   ========================================================================== */
+
+.c-form--contact {
+  max-width: 600px;
+  padding: var(--spacing-8);
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+.c-form--contact .c-form__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-6);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   FORM ACTIONS
+   ========================================================================== */
+
+.c-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-6);
+}
+
+.c-form__actions--center {
+  justify-content: center;
+}
+
+.c-form__actions--right {
+  justify-content: flex-end;
+}

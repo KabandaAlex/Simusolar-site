@@ -1,0 +1,340 @@
+/**
+ * Tulima Solar - CSS Mixins
+ * Tools: Mixins (ITCSS Layer 2)
+ * 
+ * Reusable CSS patterns using CSS custom properties
+ * Note: Native CSS doesn't have mixins, so we use utility classes
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   VISIBILITY MIXINS (as utility classes)
+   ========================================================================== */
+
+/**
+ * Visually hide content but keep it accessible to screen readers
+ * Usage: class="u-sr-only"
+ */
+.u-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/**
+ * Skip to content link - becomes visible on focus
+ * Usage: class="skip-to-content"
+ */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--primary-purple);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-fast);
+}
+
+.skip-to-content:focus {
+  top: var(--spacing-4);
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   FOCUS STYLES
+   ========================================================================== */
+
+/**
+ * Consistent focus outline for accessibility
+ * Usage: class="u-focus-outline"
+ */
+.u-focus-outline:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+.u-focus-outline:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.u-focus-outline:focus-visible {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   TRUNCATION UTILITIES
+   ========================================================================== */
+
+/**
+ * Single line text truncation
+ * Usage: class="u-truncate"
+ */
+.u-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * Multi-line truncation (requires webkit support)
+ * Usage: class="u-line-clamp-3" for 3 lines
+ */
+.u-line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.u-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.u-line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   BUTTON BASE STYLES
+   ========================================================================== */
+
+/**
+ * Base button reset and styling
+ * Usage: class="u-btn-base"
+ */
+.u-btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--btn-border-radius);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.u-btn-base:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+.u-btn-base:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CARD PATTERNS
+   ========================================================================== */
+
+/**
+ * Base card styling
+ * Usage: class="u-card-base"
+ */
+.u-card-base {
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.u-card-base:hover {
+  box-shadow: 0 4px 16px var(--shadow-medium);
+}
+
+/**
+ * Card with hover lift effect
+ * Usage: class="u-card-lift"
+ */
+.u-card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+/* ==========================================================================
+   OVERLAY PATTERNS
+   ========================================================================== */
+
+/**
+ * Dark overlay for hero sections
+ * Usage: class="u-overlay-dark" on a pseudo-element or overlay div
+ */
+.u-overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hero-overlay);
+  pointer-events: none;
+}
+
+/**
+ * Gradient overlay
+ * Usage: class="u-overlay-gradient"
+ */
+.u-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   IMAGE UTILITIES
+   ========================================================================== */
+
+/**
+ * Responsive image
+ * Usage: class="u-img-fluid"
+ */
+.u-img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/**
+ * Cover image (requires container with dimensions)
+ * Usage: class="u-img-cover"
+ */
+.u-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/**
+ * Contain image
+ * Usage: class="u-img-contain"
+ */
+.u-img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ==========================================================================
+   ASPECT RATIO UTILITIES
+   ========================================================================== */
+
+/**
+ * Aspect ratio containers (using padding hack for older browser support)
+ * Usage: class="u-aspect-16x9"
+ */
+.u-aspect-square {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.u-aspect-square > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.u-aspect-4x3 {
+  position: relative;
+  padding-bottom: 75%;
+}
+
+.u-aspect-4x3 > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.u-aspect-16x9 {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.u-aspect-16x9 > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.u-aspect-21x9 {
+  position: relative;
+  padding-bottom: 42.86%;
+}
+
+.u-aspect-21x9 > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   CLEARFIX
+   ========================================================================== */
+
+.u-clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* ==========================================================================
+   PRINT UTILITIES
+   ========================================================================== */
+
+@media print {
+  .u-print-hide {
+    display: none !important;
+  }
+  
+  .u-print-only {
+    display: block !important;
+  }
+}
+
+@media not print {
+  .u-print-only {
+    display: none !important;
+  }
+}

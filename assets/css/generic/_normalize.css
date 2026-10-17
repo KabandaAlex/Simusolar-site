@@ -1,0 +1,480 @@
+/**
+ * Tulima Solar - Browser Normalization
+ * Generic: Normalize (ITCSS Layer 3)
+ * 
+ * Cross-browser consistency for default HTML elements
+ * Builds on top of the reset with sensible defaults
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   DOCUMENT
+   ========================================================================== */
+
+html {
+  font-size: 100%; /* Respects user's browser settings (usually 16px) */
+  line-height: var(--line-height-normal, 1.5);
+  font-family: var(--font-body, 'Inter', 'Calibri', sans-serif);
+  color: var(--text-primary, #2C2C2C);
+  background-color: var(--white, #FFFFFF);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
+body {
+  font-size: var(--font-size-base, 1rem);
+  line-height: inherit;
+}
+
+section {
+  margin: 0;
+}
+
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header, 'Inter', 'Century Gothic', sans-serif);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight, 1.2);
+  color: var(--text-primary, #2C2C2C);
+}
+
+h1 {
+  font-size: var(--font-size-4xl, 2.5rem);
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+h2 {
+  font-size: var(--font-size-3xl, 2rem);
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+h3 {
+  font-size: var(--font-size-2xl, 1.75rem);
+  margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+h4 {
+  font-size: var(--font-size-xl, 1.5rem);
+  margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+h5 {
+  font-size: var(--font-size-lg, 1.25rem);
+  margin-bottom: var(--spacing-2, 0.5rem);
+}
+
+h6 {
+  font-size: var(--font-size-md, 1.125rem);
+  margin-bottom: var(--spacing-2, 0.5rem);
+}
+
+/* ==========================================================================
+   PARAGRAPHS AND TEXT
+   ========================================================================== */
+
+p {
+  margin-bottom: var(--spacing-4, 1rem);
+  line-height: var(--line-height-relaxed, 1.65);
+}
+
+.lead {
+  font-size: var(--fluid-lead, 1.25rem);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--text-secondary, #4A4A4A);
+}
+
+small {
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold, 700);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+  color: var(--primary-purple, #660099);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+a:hover {
+  color: var(--dark-purple, #4A0066);
+}
+
+a:visited {
+  color: var(--dark-purple, #4A0066);
+}
+
+a:active {
+  color: var(--accent-orange, #E98E39);
+}
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul, ol {
+  margin-bottom: var(--spacing-4, 1rem);
+  padding-left: var(--spacing-6, 1.5rem);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--spacing-2, 0.5rem);
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-top: var(--spacing-2, 0.5rem);
+}
+
+dl {
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+dt {
+  font-weight: var(--font-weight-bold, 700);
+  margin-bottom: var(--spacing-1, 0.25rem);
+}
+
+dd {
+  margin-bottom: var(--spacing-3, 0.75rem);
+  padding-left: var(--spacing-6, 1.5rem);
+}
+
+/* ==========================================================================
+   BLOCKQUOTE
+   ========================================================================== */
+
+blockquote {
+  margin: var(--spacing-6, 1.5rem) 0;
+  padding: var(--spacing-4, 1rem) var(--spacing-6, 1.5rem);
+  border-left: 4px solid var(--primary-purple, #660099);
+  background-color: var(--light-gray, #f8f9fa);
+  font-style: italic;
+  color: var(--text-secondary, #4A4A4A);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--spacing-3, 0.75rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-style: normal;
+  color: var(--text-muted, #6B6B6B);
+}
+
+/* ==========================================================================
+   CODE AND PREFORMATTED TEXT
+   ========================================================================== */
+
+code, kbd, pre, samp {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  background-color: var(--light-purple, #F0E6F7);
+  border-radius: var(--radius-sm, 0.25rem);
+  color: var(--dark-purple, #4A0066);
+}
+
+pre {
+  margin-bottom: var(--spacing-4, 1rem);
+  padding: var(--spacing-4, 1rem);
+  background-color: var(--light-gray, #f8f9fa);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--radius-md, 0.5rem);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+kbd {
+  padding: 0.2em 0.4em;
+  background-color: var(--text-primary, #2C2C2C);
+  color: var(--white, #FFFFFF);
+  border-radius: var(--radius-sm, 0.25rem);
+}
+
+/* ==========================================================================
+   IMAGES AND FIGURES
+   ========================================================================== */
+
+figure {
+  margin: var(--spacing-6, 1.5rem) 0;
+}
+
+figcaption {
+  margin-top: var(--spacing-2, 0.5rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  text-align: center;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+table {
+  margin-bottom: var(--spacing-6, 1.5rem);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+th, td {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+}
+
+th {
+  font-weight: var(--font-weight-semibold, 600);
+  background-color: var(--light-gray, #f8f9fa);
+  border-bottom-width: 2px;
+}
+
+thead th {
+  vertical-align: bottom;
+}
+
+tbody tr:hover {
+  background-color: var(--light-gray, #f8f9fa);
+}
+
+/* Responsive table wrapper */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================================================
+   FORMS
+   ========================================================================== */
+
+fieldset {
+  margin: 0;
+  padding: var(--spacing-6, 1.5rem);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--radius-md, 0.5rem);
+}
+
+legend {
+  padding: 0 var(--spacing-2, 0.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--text-primary, #2C2C2C);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-2, 0.5rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--text-primary, #2C2C2C);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: var(--input-padding-y, 0.75rem) var(--input-padding-x, 1rem);
+  font-size: var(--input-font-size, 1rem);
+  line-height: var(--line-height-normal, 1.5);
+  color: var(--text-primary, #2C2C2C);
+  background-color: var(--white, #FFFFFF);
+  background-clip: padding-box;
+  border: 1px solid var(--input-border-color, #dee2e6);
+  border-radius: var(--input-border-radius, 0.5rem);
+  transition: border-color var(--transition-fast, 150ms ease),
+              box-shadow var(--transition-fast, 150ms ease);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--input-focus-border-color, #660099);
+  box-shadow: var(--input-focus-shadow, 0 0 0 3px rgba(102, 0, 153, 0.1));
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted, #6B6B6B);
+  opacity: 1;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--light-gray, #f8f9fa);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CHECKBOXES AND RADIOS
+   ========================================================================== */
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: var(--spacing-2, 0.5rem);
+  vertical-align: middle;
+  accent-color: var(--primary-purple, #660099);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--btn-padding-y, 0.75rem) var(--btn-padding-x, 1.5rem);
+  font-family: var(--font-body, inherit);
+  font-size: var(--btn-font-size, 1rem);
+  font-weight: var(--btn-font-weight, 600);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: var(--btn-border-radius, 0.5rem);
+  transition: var(--btn-transition, all 250ms ease);
+}
+
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+hr {
+  margin: var(--spacing-8, 2rem) 0;
+  border: 0;
+  border-top: 1px solid var(--border-color, #dee2e6);
+}
+
+/* ==========================================================================
+   ADDRESS
+   ========================================================================== */
+
+address {
+  margin-bottom: var(--spacing-4, 1rem);
+  font-style: normal;
+  line-height: inherit;
+}
+
+/* ==========================================================================
+   DETAILS AND SUMMARY
+   ========================================================================== */
+
+details {
+  margin-bottom: var(--spacing-4, 1rem);
+  padding: var(--spacing-4, 1rem);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--radius-md, 0.5rem);
+}
+
+summary {
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--primary-purple, #660099);
+}
+
+details[open] summary {
+  margin-bottom: var(--spacing-4, 1rem);
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+  padding-bottom: var(--spacing-4, 1rem);
+}
+
+/* ==========================================================================
+   MARK AND HIGHLIGHTS
+   ========================================================================== */
+
+mark {
+  padding: 0.1em 0.2em;
+  background-color: var(--light-orange, #FDF4E8);
+  color: var(--text-primary, #2C2C2C);
+}
+
+/* ==========================================================================
+   ABBREVIATION
+   ========================================================================== */
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* ==========================================================================
+   SUBSCRIPT AND SUPERSCRIPT
+   ========================================================================== */
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}

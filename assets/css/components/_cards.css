@@ -1,0 +1,485 @@
+/**
+ * Tulima Solar - Card Components
+ * Components: Cards (ITCSS Layer 6)
+ * 
+ * Card styles for various content displays
+ * BEM naming: .c-card, .c-card__title, etc.
+ * 
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   CARD BASE
+   ========================================================================== */
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.c-card:hover {
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+/* Card with hover lift */
+.c-card--lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--shadow-medium);
+}
+
+/* ==========================================================================
+   CARD IMAGE
+   ========================================================================== */
+
+.c-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.c-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.c-card:hover .c-card__image img {
+  transform: scale(1.05);
+}
+
+/* Image overlay */
+.c-card__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CARD BODY
+   ========================================================================== */
+
+.c-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-5);
+}
+
+.c-card__body--compact {
+  padding: var(--spacing-4);
+}
+
+/* ==========================================================================
+   CARD HEADER
+   ========================================================================== */
+
+.c-card__header {
+  margin-bottom: var(--spacing-3);
+}
+
+.c-card__tag {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-2);
+  background-color: var(--light-purple);
+  color: var(--primary-purple);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-2);
+}
+
+.c-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: var(--line-height-snug);
+}
+
+.c-card__title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.c-card__title a:hover {
+  color: var(--primary-purple);
+}
+
+/* ==========================================================================
+   CARD CONTENT
+   ========================================================================== */
+
+.c-card__content {
+  flex: 1;
+  margin-bottom: var(--spacing-4);
+}
+
+.c-card__excerpt,
+.c-card__text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* ==========================================================================
+   CARD FOOTER
+   ========================================================================== */
+
+.c-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--card-border);
+  margin-top: auto;
+}
+
+.c-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.c-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.c-card__meta-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.c-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--primary-purple);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.c-card__link:hover {
+  color: var(--dark-purple);
+  gap: var(--spacing-2);
+}
+
+.c-card__link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ==========================================================================
+   CARD VARIANTS
+   ========================================================================== */
+
+/* Feature Card - for services/features */
+.c-card--feature {
+  text-align: center;
+  padding: var(--spacing-6);
+}
+
+.c-card--feature .c-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-4);
+  background-color: var(--light-purple);
+  border-radius: var(--radius-lg);
+  color: var(--primary-purple);
+}
+
+.c-card--feature .c-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.c-card--feature .c-card__icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Product Card */
+.c-card--product .c-card__image {
+  aspect-ratio: 1 / 1;
+  background-color: var(--light-gray);
+}
+
+.c-card--product .c-card__price {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-2);
+}
+
+.c-card--product .c-card__price-old {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-left: var(--spacing-2);
+}
+
+/* Testimonial Card */
+.c-card--testimonial {
+  padding: var(--spacing-6);
+}
+
+.c-card--testimonial .c-card__quote {
+  position: relative;
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-6);
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.c-card--testimonial .c-card__quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  color: var(--secondary-green);
+  line-height: 1;
+}
+
+.c-card--testimonial .c-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.c-card--testimonial .c-card__author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background-color: var(--light-purple);
+}
+
+.c-card--testimonial .c-card__author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-card--testimonial .c-card__author-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.c-card--testimonial .c-card__author-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+/* Team Card */
+.c-card--team {
+  text-align: center;
+}
+
+.c-card--team .c-card__image {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.c-card--team .c-card__body {
+  padding: var(--spacing-4);
+}
+
+.c-card--team .c-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.c-card--team .c-card__role {
+  font-size: var(--font-size-sm);
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-3);
+}
+
+.c-card--team .c-card__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+}
+
+.c-card--team .c-card__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--light-gray);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.c-card--team .c-card__social-link:hover {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+/* Blog Card */
+.c-card--blog .c-card__image {
+  aspect-ratio: 16 / 9;
+}
+
+.c-card--blog .c-card__date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--spacing-2);
+}
+
+/* ==========================================================================
+   CARD GRID
+   ========================================================================== */
+
+.c-card-grid {
+  display: grid;
+  gap: var(--spacing-6);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 576px) {
+  .c-card-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .c-card-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .c-card-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .c-card-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .c-card-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   HORIZONTAL CARD
+   ========================================================================== */
+
+.c-card--horizontal {
+  flex-direction: row;
+}
+
+.c-card--horizontal .c-card__image {
+  width: 200px;
+  flex-shrink: 0;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.c-card--horizontal .c-card__body {
+  flex: 1;
+}
+
+@media (max-width: 767.98px) {
+  .c-card--horizontal {
+    flex-direction: column;
+  }
+  
+  .c-card--horizontal .c-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ==========================================================================
+   STAT CARD (for impact numbers)
+   ========================================================================== */
+
+.c-card--stat {
+  text-align: center;
+  padding: var(--spacing-6);
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+.c-card--stat .c-card__number {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  margin-bottom: var(--spacing-2);
+}
+
+.c-card--stat .c-card__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ==========================================================================
+   CLICKABLE CARD
+   ========================================================================== */
+
+.c-card--clickable {
+  cursor: pointer;
+}
+
+.c-card--clickable:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+/* Make entire card a link */
+.c-card__link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.c-card[data-href] {
+  position: relative;
+  cursor: pointer;
+}
+
+.c-card[data-href] .c-card__title a,
+.c-card[data-href] .c-card__link {
+  position: relative;
+  z-index: 2;
+}

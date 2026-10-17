@@ -1,0 +1,467 @@
+/**
+ * Tulima Solar – Navigation (rebuilt)
+ * BEM: .c-nav, .c-nav__bar, .c-nav__list, .c-nav__link, .c-nav__drawer, etc.
+ */
+
+/* ==========================================================================
+   SCOPED LIST RESET (override elements layer)
+   ========================================================================== */
+
+.c-nav ul,
+.c-nav ol,
+.c-nav .c-nav__list,
+.c-nav .c-nav__drawer-list,
+.c-nav .c-nav__drawer-sublist,
+.c-nav .c-nav__dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 0;
+}
+
+.c-nav li,
+.c-nav .c-nav__li,
+.c-nav .c-nav__drawer-li,
+.c-nav .c-nav__drawer-sublist-li,
+.c-nav .c-nav__dropdown-li {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+.c-nav {
+  position: relative;
+  z-index: var(--z-sticky);
+}
+
+.c-nav__bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: var(--z-sticky);
+  background-color: var(--white);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.c-nav__bar:not(.c-nav__bar--transparent) {
+  box-shadow: 0 1px 0 var(--border-color);
+}
+
+/* When scrolled: solid bar so menu is always readable over content (all pages) */
+.c-nav.is-scrolled .c-nav__bar {
+  background-color: var(--white) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+.c-nav.is-scrolled .c-nav__bar .c-nav__link {
+  color: var(--text-primary) !important;
+}
+.c-nav.is-scrolled .c-nav__bar .c-nav__link:hover {
+  color: var(--primary-purple) !important;
+  background-color: var(--purple-tint);
+}
+
+.c-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+  gap: var(--spacing-6);
+}
+
+/* ==========================================================================
+   LOGO
+   ========================================================================== */
+
+.c-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  color: var(--primary-purple);
+  font-family: var(--font-header);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.c-nav__logo:hover {
+  color: var(--dark-purple);
+  text-decoration: none;
+}
+
+.c-nav__logo-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Override generic reset (svg { max-width: 100% }) so logo stays fixed size */
+.c-nav__logo-icon svg {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  color: currentColor;
+}
+
+.c-nav__logo-text {
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Transparent bar: light logo */
+.c-nav__bar--transparent .c-nav__logo {
+  color: var(--white);
+}
+
+.c-nav.is-scrolled .c-nav__bar .c-nav__logo {
+  color: var(--primary-purple);
+}
+
+/* ==========================================================================
+   DESKTOP MENU
+   ========================================================================== */
+
+.c-nav__menu-wrap {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .c-nav__menu-wrap {
+    display: block;
+    flex: 1;
+    margin: 0 var(--spacing-4);
+  }
+}
+
+.c-nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--spacing-1);
+}
+
+.c-nav__li {
+  position: relative;
+}
+
+.c-nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-3);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-2xl);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.c-nav__link:hover {
+  color: var(--primary-purple);
+  background-color: var(--purple-tint);
+  text-decoration: none;
+}
+
+.c-nav__link.is-active,
+.c-nav__link[aria-current="page"] {
+  color: var(--primary-purple);
+  font-weight: var(--font-weight-semibold);
+}
+
+.c-nav__bar--transparent .c-nav__link {
+  color: var(--white);
+}
+
+.c-nav__bar--transparent .c-nav__link:hover {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.c-nav.is-scrolled .c-nav__bar .c-nav__link {
+  color: var(--text-primary);
+}
+
+.c-nav.is-scrolled .c-nav__bar .c-nav__link:hover {
+  color: var(--primary-purple);
+  background-color: var(--purple-tint);
+}
+
+/* Dropdown */
+.c-nav__li--has-dropdown .c-nav__link {
+  padding-right: var(--spacing-6);
+}
+
+.c-nav__li--has-dropdown .c-nav__link::after {
+  content: '';
+  position: absolute;
+  right: var(--spacing-2);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-30%) rotate(45deg);
+  transition: transform var(--transition-fast);
+}
+
+.c-nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 200px;
+  padding: var(--spacing-2) 0;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px var(--shadow-medium);
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
+  z-index: var(--z-dropdown);
+}
+
+.c-nav__li--has-dropdown:hover .c-nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.c-nav__dropdown-li {
+  margin: 0;
+  padding: 0;
+}
+
+.c-nav__dropdown-li .c-nav__link {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: 0;
+  font-size: var(--font-size-sm);
+}
+
+.c-nav__dropdown-li .c-nav__link:hover {
+  background-color: var(--purple-tint);
+}
+
+/* ==========================================================================
+   ACTIONS (CTA + Burger)
+   ========================================================================== */
+
+.c-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.c-nav__cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .c-nav__cta {
+    display: inline-flex;
+  }
+}
+
+.c-nav__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.c-nav__burger:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.c-nav__bar--transparent .c-nav__burger {
+  color: var(--white);
+}
+
+.c-nav.is-scrolled .c-nav__bar .c-nav__burger {
+  color: var(--text-primary);
+}
+
+@media (min-width: 992px) {
+  .c-nav__burger {
+    display: none;
+  }
+}
+
+.c-nav__burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.c-nav__burger-line + .c-nav__burger-line {
+  margin-top: 5px;
+}
+
+.c-nav__burger[aria-expanded="true"] .c-nav__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.c-nav__burger[aria-expanded="true"] .c-nav__burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.c-nav__burger[aria-expanded="true"] .c-nav__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   MOBILE DRAWER
+   ========================================================================== */
+
+/* Drawer hidden by default (critical CSS). Only enable on small screens so it can slide in when opened. */
+.c-nav__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 100vw);
+  max-width: 100%;
+  background: var(--white);
+  padding: calc(var(--navbar-height) + var(--spacing-4)) var(--spacing-4) var(--spacing-4);
+  overflow-y: auto;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform var(--transition-base), visibility var(--transition-base);
+  z-index: var(--z-fixed);
+  box-shadow: -4px 0 24px var(--shadow-medium);
+}
+
+.c-nav__drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Show drawer only on small viewports (so burger can open it); keep off-screen until .is-open */
+@media (max-width: 991.98px) {
+  .c-nav__drawer {
+    display: block !important;
+  }
+}
+
+/* On desktop, drawer must never show (only horizontal nav) */
+@media (min-width: 992px) {
+  .c-nav__drawer {
+    display: none !important;
+  }
+}
+
+.c-nav__drawer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.c-nav__drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-nav__drawer-li {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.c-nav__drawer-li:last-child {
+  border-bottom: none;
+}
+
+.c-nav__drawer-link {
+  display: block;
+  padding: var(--spacing-4) 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.c-nav__drawer-link:hover {
+  color: var(--primary-purple);
+  text-decoration: none;
+}
+
+.c-nav__drawer-link.is-active {
+  color: var(--primary-purple);
+  font-weight: var(--font-weight-semibold);
+}
+
+.c-nav__drawer-sublist {
+  list-style: none;
+  margin: 0 0 var(--spacing-2) 0;
+  padding: 0 0 0 var(--spacing-4);
+}
+
+.c-nav__drawer-sublist-li .c-nav__drawer-link {
+  font-size: var(--font-size-base);
+  padding: var(--spacing-2) 0;
+}
+
+.c-nav__drawer-cta {
+  margin-top: auto;
+  padding-top: var(--spacing-4);
+}
+
+/* ==========================================================================
+   BACKDROP
+   ========================================================================== */
+
+.c-nav__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+  z-index: calc(var(--z-fixed) - 1);
+}
+
+.c-nav__backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 992px) {
+  .c-nav__backdrop {
+    display: none;
+  }
+}
